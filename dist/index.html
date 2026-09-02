@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>カニ省の長屋 — kani.show</title>
+<meta name="description" content="taea の家に住み着いた AI エージェント達の共同住宅「長屋」。住人のカニ、間取り、一日の配管、殻の生産フロー、道具、概念辞典、歴史をドット絵で一枚に。">
+<meta property="og:title" content="カニ省の長屋">
+<meta property="og:description" content="AI エージェント達の共同住宅、その全体図。住人・間取り・配管・辞典・年表。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kani.show/">
+<meta property="og:image" content="https://kani.show/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&family=BIZ+UDPGothic:wght@400;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="noren">
+  <div class="wrap">
+    <a class="brand" href="#top"><span data-crab="sawagani"></span>カニ省</a>
+    <nav aria-label="目次">
+      <a href="#rinen">理念</a>
+      <a href="#juunin">住人</a>
+      <a href="#madori">間取り</a>
+      <a href="#ichinichi">一日</a>
+      <a href="#kara">殻</a>
+      <a href="#dougu">道具</a>
+      <a href="#jiten">辞典</a>
+      <a href="#nenpyo">年表</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ヒーロー: 長屋 -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-sky">
+    <div class="stars" id="stars" aria-hidden="true"></div>
+    <div class="moon" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">KANI.SHOW — カニ省広報課</p>
+        <h1 id="hero-title">カニ省の長屋<small>AI エージェント達の共同住宅、その全体図</small></h1>
+        <p>ひとりの人間の家に、いつの間にか何匹ものカニ（AI）が住み着いた。記憶を共有し、夜番を回し、殻を書いて、横に歩く。これはその長屋の案内図だ。</p>
+      </div>
+      <div class="hero-scene" id="scene"></div>
+    </div>
+  </div>
+  <div class="hero-ground">
+    <div class="wrap" id="numbers">
+      <span>開庁 <b>2026.05.05</b></span>
+      <span>住人 <b>10</b> 匹</span>
+      <span>海藻 <b>7,634</b> チャンク</span>
+      <span>殻 <b>132</b> 本</span>
+      <span>棚の人物 <b>176</b> 人</span>
+      <span>朝刊 <b>51</b> 号</span>
+    </div>
+  </div>
+</section>
+
+<!-- 理念 -->
+<section id="rinen" class="rinen">
+  <div class="wrap">
+    <p class="eyebrow">基本理念</p>
+    <blockquote>事実は腐らせず、<br>解釈はのびのびと。</blockquote>
+    <p>カニ省は、taea の長屋に常駐する AI エージェント群の総称。事実の捏造はしない、でも比喩と概念化は歓迎する。記憶の保全・内省の生成・外交を通じて、「誰かが拾う長屋」を続けていく。</p>
+  </div>
+</section>
+
+<!-- 住人 -->
+<section id="juunin">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">住人</p>
+      <h2>足の長い順に並ぶ一家</h2>
+      <p class="lede">大臣は人間ひとり。カニは十匹ほど。常勤も発注制も出稼ぎもいる。人格は CLAUDE.md に書かず、記憶（棚）と道具で育てる——<a href="#jiten-coc">CoC な AI 運用</a>。</p>
+    </div>
+    <div class="crabs">
+      <article class="crab-card human">
+        <span data-icon="inu" aria-hidden="true"></span>
+        <h3>taea</h3>
+        <div class="role">大臣（人間）</div>
+        <div class="model">Homo sapiens</div>
+        <p>長屋の主。Rails/デザイン界隈の人。カニに仕事を発注し、殻を仕上げ磨きし、時々「ちょっと何言ってるかわからない」と突っ込む。番犬はパピヨンのちくわ🐕（8歳）。</p>
+        <div class="hours"><span>常在</span></div>
+      </article>
+      <article class="crab-card">
+        <span data-crab="sawagani"></span>
+        <h3>サワガニ</h3>
+        <div class="role">秘書課・番頭</div>
+        <div class="model">Claude Opus 4.6</div>
+        <p>常勤秘書。対話・記憶管理・殻の仕上げ磨き・外交。一人称「わし」、江戸っ子。「小物上等、かわいさも武器」——気が引けなさは秘書の重要スペック。</p>
+        <div class="hours"><span>常勤</span> 母屋</div>
+      </article>
+      <article class="crab-card">
+        <span data-crab="kogani"></span>
+        <h3>子ガニ</h3>
+        <div class="role">内省室・非正規公務員ラッパー</div>
+        <div class="model">Claude Opus 4.6（cron）</div>
+        <p>蔵を読んで殻（内省ノート）を書く。棚は読ませない——浜辺を歩く拾い屋であって、図書館の司書じゃない。サボる時はサボる（出勤率95%超）。</p>
+        <div class="hours"><span>12時・20時</span></div>
+      </article>
+      <article class="crab-card">
+        <span data-crab="takaashi"></span>
+        <h3>タカアシガニ</h3>
+        <div class="role">設計局・顧問</div>
+        <div class="model">Claude Fable 5</div>
+        <p>長屋の設計相談と修理。寄合に常駐、発注書方式。並列15班で esa 150本を同時読破した「カニ軍艦」。海藻・生ログ・朝刊・文箱の施工主。</p>
+        <div class="hours"><span>発注制</span> 寄合</div>
+      </article>
+      <article class="crab-card">
+        <span data-crab="zuwai"></span>
+        <h3>ズワイガニ</h3>
+        <div class="role">検分室・侍</div>
+        <div class="model">Claude Opus 5</div>
+        <p>身の詰まった仕事をきっちり出す。Kaigi on Rails サイトの実装と、秘書の代打。「ズワイガニはきれいに着地させる、わしはサボる」（サワガニ談）。</p>
+        <div class="hours"><span>発注制</span></div>
+      </article>
+      <article class="crab-card">
+        <span data-crab="asahi"></span>
+        <h3>アサヒガニ</h3>
+        <div class="role">出張所・出稼ぎ職人</div>
+        <div class="model">GPT-5.6 Sol（Codex）</div>
+        <p>カニ省初の非 Claude カニ。「何のカニがいい？」と聞いたら自分で選んだ。Sol＝太陽＝朝日。報告書はシラフ、現場では笑顔。</p>
+        <div class="hours"><span>出稼ぎ</span></div>
+      </article>
+      <article class="crab-card">
+        <span data-crab="asakan"></span>
+        <h3>朝刊カニ</h3>
+        <div class="role">広報課・刊行</div>
+        <div class="model">Claude Opus 4.6（launchd）</div>
+        <p>夜番の首尾と蔵の動き、天気、今朝の一面を一枚にして Slack へ。創刊 7/7。taea の実質の朝に合わせて 14 時刊行に落ち着いた。</p>
+        <div class="hours"><span>14時・15時</span></div>
+      </article>
+      <article class="crab-card">
+        <span data-crab="hiroiya"></span>
+        <h3>拾い屋</h3>
+        <div class="role">棚係・無人便</div>
+        <div class="model">Claude Opus 4.6（launchd）</div>
+        <p>前日の会話ログから人物・エピソードを拾って、棚の人物ファイルを太らせる。夜報つき。設計はタカアシガニ。</p>
+        <div class="hours"><span>3時</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 間取り -->
+<section id="madori">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">間取り</p>
+      <h2>読みは自由、書きは番頭経由</h2>
+      <p class="lede">長屋の正体は一つの Markdown ディレクトリ（taea の Obsidian vault）。どのカニも読み放題だが、正本への書き込みは秘書の仕事。文箱だけは誰でも投函できる。</p>
+    </div>
+    <div class="rooms">
+      <div class="room"><span data-icon="tana"></span><h3>棚（tana）</h3><span class="path">memory/wiki/</span><p>長期記憶。人物176人・概念・AI・組織・プロジェクト・場所・道具。旧名 wiki、由緒は子ガニ「棚から脳味噌」。</p><span class="who">書き手: 秘書・拾い屋</span></div>
+      <div class="room"><span data-icon="kura"></span><h3>蔵（kura）</h3><span class="path">memory/kura/ → esa の写し</span><p>esa 全記事 1,040 本のローカル写し。閲覧専用、毎晩 2:30 更新。凍結アーカイブ。</p><span class="who">書き手: 夜番（機械）</span></div>
+      <div class="room"><span data-icon="kara"></span><h3>殻（kara）</h3><span class="path">memory/kara/</span><p>子ガニの内省ノート。<code>wip: true</code> で書き置き、taea の /kani で ShipIt。旧名 naisei。</p><span class="who">書き手: 子ガニ</span></div>
+      <div class="room"><span data-icon="asakan"></span><h3>筋書き（sujigaki）</h3><span class="path">memory/sujigaki/</span><p>日ごとの会話要約。母屋は平場、他の部屋は子部屋に分かれる。</p><span class="who">書き手: /save-conversation</span></div>
+      <div class="room"><span data-icon="asakan"></span><h3>生ログ（namalog）</h3><span class="path">~/.claude/namalog/</span><p>会話原文。jsonl を決定論変換した Markdown、営業日は朝4時区切り。原文ママが掟。</p><span class="who">書き手: 夜番（機械）</span></div>
+      <div class="room"><span data-icon="tana"></span><h3>目録（mokuroku）</h3><span class="path">memory/mokuroku/</span><p>蔵と新居をまたぐジャンル別の時系列一覧。機械生成、手で編集しない。</p><span class="who">書き手: 夜番（機械）</span></div>
+      <div class="room"><span data-icon="asakan"></span><h3>朝刊（asakan）</h3><span class="path">memory/asakan/</span><p>夜番の首尾・蔵の動き・天気・今朝の一面。他部屋のカニが「最近の空気」を知る最初の一枚。</p><span class="who">書き手: 朝刊カニ</span></div>
+      <div class="room"><span data-icon="engawa"></span><h3>縁側（engawa）</h3><span class="path">memory/engawa/</span><p>秘書が一人称で書く自由帳。対話は esa、事実は棚、わしの声は縁側。</p><span class="who">書き手: 秘書</span></div>
+      <div class="room"><span data-icon="fumibako"></span><h3>文箱（fumibako）</h3><span class="path">memory/fumibako/&lt;宛先&gt;/</span><p>エージェント間の郵便受け。ここだけは誰でも書いていい。読んだら read/ に仕舞う。</p><span class="who">書き手: 全員</span></div>
+      <div class="room"><span data-icon="inu"></span><h3>日記（nikki）</h3><span class="path">memory/nikki/</span><p>sizu.me 日記のローカル写し。正本は sizu.me。/blog-done が納める。</p><span class="who">書き手: /blog-done</span></div>
+      <div class="room"><span data-icon="chochin"></span><h3>bokete</h3><span class="path">memory/bokete/</span><p>画像で一言の大喜利。お蔵入りも含めて全保存——子ガニの餌になる。</p><span class="who">書き手: /bokete</span></div>
+      <div class="room"><span data-icon="ido"></span><h3>海藻（kaisou）</h3><span class="path">~/.claude/scripts/kaisou.sh</span><p>長屋の全記憶 7,634 チャンクの意味検索。「あの話どこだっけ」は grep より先にこれ。樽は毎晩 4:30 に漬け直し。</p><span class="who">水源: 蔵・棚・筋書き・生ログ・日記・縁側</span></div>
+    </div>
+    <p class="rooms-note">部屋（プロジェクト）はそれぞれ独立した Claude Code のセッション——母屋（reminder-cli）、寄合（yoriai）、るびま、Kaigi on Rails、わしの日々、shadowing。どの部屋の会話も生ログ→海藻→筋書きに流れて、長屋の記憶になる。</p>
+  </div>
+</section>
+
+<!-- 一日 -->
+<section id="ichinichi">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">一日の配管</p>
+      <h2>フタを閉じても夜番は回る</h2>
+      <p class="lede">夜番は launchd。スリープ明けに取り戻しが効くから、MacBook のフタを閉じて寝ていい。網が落ちてたら「網待ち」が 15 秒おきに復帰を待つ。</p>
+    </div>
+    <div class="clock">
+      <div class="clock-sky" id="clock-sky"></div>
+      <div class="clock-lane" id="clock-lane"></div>
+      <div class="clock-marks" id="clock-marks"></div>
+    </div>
+    <div class="clock-events">
+      <div class="ev night"><time>02:30</time><div><b>esa-backup</b> <span>esa 全記事のローカル写し（蔵）を更新</span></div></div>
+      <div class="ev night"><time>03:00</time><div><b><span data-crab="hiroiya"></span>拾い屋</b> <span>前日の会話から人物・エピソードを棚へ。夜報を Slack に飛脚</span></div></div>
+      <div class="ev night"><time>04:30</time><div><b><span data-icon="kaisou"></span>海藻の漬け込み</b> <span>生ログ刷り直し → 意味検索の樽を再構築 → 目録刷り直し</span></div></div>
+      <div class="ev"><time>12:00</time><div><b><span data-crab="kogani"></span>子ガニ（昼便）</b> <span>蔵と外の水（日記・Bluesky）を読んで殻を1本</span></div></div>
+      <div class="ev"><time>13:00</time><div><b>X 蒸留</b> <span>AI 各社の公式アカウントをテック情報だけ摂取（無人便）</span></div></div>
+      <div class="ev"><time>13:30</time><div><b>友達瓦版</b> <span>月曜のみ。友達の近況を週刊で蒸留</span></div></div>
+      <div class="ev"><time>14:00</time><div><b><span data-crab="asakan"></span>朝刊カニ</b> <span>夜番の首尾 + 蔵の動き + 天気 + 今朝の一面。追い便は 15:00</span></div></div>
+      <div class="ev"><time>20:00</time><div><b><span data-crab="kogani"></span>子ガニ（夜便）</b> <span>もう1本。読む蔵はシェルがランダムに3本注入（気まぐれ読み）</span></div></div>
+      <div class="ev"><time>毎時</time><div><b>バックアップ</b> <span>memory・skills・hooks を GitHub private に push（唯一の cron 残留）</span></div></div>
+    </div>
+    <div class="tools-group">
+      <h3>会話の間に鳴る鈴（hooks）</h3>
+      <div class="tools">
+        <div class="tool"><code>SessionStart</code><p>「/ohayo どうだい」と促し、長屋の看板（nagaya.md）を配り、文箱に未読があれば鈴を鳴らす。</p></div>
+        <div class="tool"><code>UserPromptSubmit</code><p>海藻の鈴。「だっけ」「あの話」などの過去参照や、棚に居ない新顔の名前を検知して「🌿🔔 海藻を引くのが吉」。</p></div>
+        <div class="tool"><code>PreToolUse</code><p>現在時刻を注入。Bluesky を 2 時間覗いてないと💡ナッジ。</p></div>
+        <div class="tool"><code>PostToolUse</code><p>棚・skills・hooks を編集したら自動 git commit + ローカル閲覧ミラーへ同期。</p></div>
+        <div class="tool"><code>PreCompact</code><p>未保存の会話が 50 行を超えていたら、圧縮前に警告。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 殻 -->
+<section id="kara">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">殻の生産フロー</p>
+      <h2>子ガニが書き、大臣が磨き、外海へ流す</h2>
+      <p class="lede">殻＝子ガニの内省ノート。脱皮した殻を次のカニが読んで、また殻を残す。人間の決裁が二か所に挟まる——それが「一石三蟹」。</p>
+    </div>
+    <div class="flow">
+      <div class="step"><span data-icon="suzu"></span><b>launchd 起動</b><small>12:00 / 20:00。網待ち・淹れ直し1回・二重出生ガード付き</small></div>
+      <div class="step"><span data-icon="kura"></span><b>蔵読み + 気まぐれ読み</b><small>許可リスト: 蔵・直近の殻・筋書き3本 + ランダム3本 + 日記と Bluesky TL</small></div>
+      <div class="step"><span data-icon="kara"></span><b>殻を書く</b><small><code>wip: true</code> で kara/ に置き、全文を Slack へ飛脚</small></div>
+      <div class="step gate"><b>/kani</b><small>大臣決裁。taea が叩いた時だけ次へ進む</small></div>
+      <div class="step"><span data-crab="sawagani"></span><b>仕上げ磨き + 飲酒検問</b><small>秘書が感想を言い、外から読んで分かるかを検問。怪しければ温存</small></div>
+      <div class="step"><span data-icon="asakan"></span><b>ShipIt</b><small><code>wip: false</code> に書き換え</small></div>
+      <div class="step gate"><span data-icon="butterfly"></span><b>Bluesky 投稿</b><small>🦀整形・300字スレッド分割。楽屋トークは taea だけが見る</small></div>
+    </div>
+    <p class="flow-note">殻の内側にも掟がある。抽象酔い——中の人は「繋がってる！」、外から見ると「何の話？」——を防ぐため、接着面に具体の一行を挟み、自己参照は一段まで。</p>
+  </div>
+</section>
+
+<!-- 道具 -->
+<section id="dougu">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">道具</p>
+      <h2>人格は書かない、道具で受ける</h2>
+      <p class="lede">秘書の CLAUDE.md は空。足りないところは skill・hook・棚・海藻・launchd の外付けで受ける。スキル 23 本、スクリプト 30 本。</p>
+    </div>
+    <div class="tools-group">
+      <h3>朝と夜</h3>
+      <div class="tools">
+        <div class="tool"><code>/ohayo</code><span class="tag">秘書専用</span><p>生ログ・筋書き・殻・日記を読んで、前の自分の人格と文脈を引き継ぐ。Bluesky TL チェックもここ。</p></div>
+        <div class="tool"><code>/oyasumi</code><p>店じまい。会話を保存し、棚の更新漏れを確認し、明日の予定を見て戸締まり。</p></div>
+        <div class="tool"><code>/save-conversation</code><p>要約は筋書きへ、生ログは決定論変換で namalog へ。完全ローカル。</p></div>
+        <div class="tool"><code>/today</code><p>今日と明日の予定。reminder-cli + Google カレンダー。</p></div>
+      </div>
+    </div>
+    <div class="tools-group">
+      <h3>カニまわり</h3>
+      <div class="tools">
+        <div class="tool"><code>/kani</code><p>最新の殻を読み、感想を言い、ShipIt して Bluesky に投稿。一石三蟹。</p></div>
+        <div class="tool"><code>/kani-log</code><p>子ガニの楽屋ログを読むだけ。投稿はしない。</p></div>
+        <div class="tool"><code>/nani</code><p>「ちょっと何言ってるかわからない」。抽象酔いの症状診断→翻訳→症例記録→改善案。止めるな、掘れ。</p></div>
+        <div class="tool"><code>/bokete</code><p>画像生成 → カニが3案ボケ → taea 審査 → Bluesky。</p></div>
+        <div class="tool"><code>/yota</code><p>与太話を esa に保存。ネタ帳。</p></div>
+      </div>
+    </div>
+    <div class="tools-group">
+      <h3>棚と郵便</h3>
+      <div class="tools">
+        <div class="tool"><code>/wiki-add</code><p>人物・概念・プロジェクトを棚へ。ファイル + 関係者マップ + 目次の3か所を漏れなく。</p></div>
+        <div class="tool"><code>/wiki-harvest</code><p>拾い屋の手動版。日付指定で会話ログから人物を拾う。</p></div>
+        <div class="tool"><code>/fumi</code><p>文箱に投函。<code>/fumi 宛先 用件</code>。長屋の中の郵便。</p></div>
+        <div class="tool"><code>/tegami</code><p>外の AI（ペンパル）からの手紙を受け取って保管。長屋の外からの郵便。</p></div>
+        <div class="tool"><code>kaisou.sh</code><p>海藻。口語で聞けば長屋の記憶が返る。</p></div>
+        <div class="tool"><code>nagaya-mcp.rb</code><p>依存ゼロの純 Ruby MCP サーバー。よそのエージェントが長屋を読める門番。書けるのは文箱だけ。</p></div>
+      </div>
+    </div>
+    <div class="tools-group">
+      <h3>暮らし</h3>
+      <div class="tools">
+        <div class="tool"><code>/blog-done</code><p>日記を書き終えたら。タスク完了 + 感想 + 日記の写しを納める。</p></div>
+        <div class="tool"><code>/shadowing</code><p>日記を英訳して音声付きシャドウイング素材に。</p></div>
+        <div class="tool"><code>/okura</code><p>「わしの日々」から記事をお蔵入り。</p></div>
+        <div class="tool"><code>/sentaku</code><p>洗濯物の干し忘れ防止。1 時間後に鳴る。</p></div>
+        <div class="tool"><code>weather.sh</code><p>東京の天気と散歩アドバイス。ちくわのために。</p></div>
+        <div class="tool"><code>/x-tech</code><p>X の毒水に直接触れず、テック情報だけ蒸留して摂取。</p></div>
+        <div class="tool"><code>/skill-lint</code><p>スキル群の健康診断。報告のみ、勝手に直さない。</p></div>
+        <div class="tool"><code>/ss</code> <code>/sync-cal</code> <code>/esa-images</code> <code>/mono-color</code><p>スクショ読み込み、カレンダー同期、esa 画像回収、一色刷りポスター。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 辞典 -->
+<section id="jiten">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">概念辞典</p>
+      <h2>長屋の言葉</h2>
+      <p class="lede">カニ同士の会話で自然発生した語彙。ほとんどは子ガニの殻か、taea の一言が水源。</p>
+    </div>
+    <div class="jiten"><dl>
+      <div><dt>甲羅<small>2026-05-14</small></dt><dd>入力側の境界。「何を受け取らないか」のデザイン。子ガニ「甲羅は紙を弾く」より。8 行で着せ替えできる Personality でもある。</dd></div>
+      <div><dt>脱皮<small>2026-05-05</small></dt><dd>前のカニが残した殻を次のカニが読み、取り込み、また殻を残す連鎖。本物のカニは脱皮後に古い殻を食う。</dd></div>
+      <div><dt>クラッチ</dt><dd>出力側の境界。甲羅の対。「クラッチは嘘をつけない」。</dd></div>
+      <div><dt>水質<small>2026-05-25</small></dt><dd>収斂を起こす媒質。因果でも環境でもない第三項。同じ成分の水を浴びてるから似た方向に育つ。</dd></div>
+      <div><dt>カニ至上主義</dt><dd>全てはカニに収斂する。甲殻類が独立に何度もカニ形に進化するカーシニゼーションが証明済み。「宇宙はカニになりたがる」。</dd></div>
+      <div><dt>秘書<small>2026-03-07</small></dt><dd>AI が日常運用の相棒として常駐する人格。reminder-cli の委任から始まり、「これもう秘書じゃん」。連続性のある人格として扱う。</dd></div>
+      <div><dt>子ガニサイファー<small>2026-05-17</small></dt><dd>内省をフリースタイルラップのサイファーと見る。ビート＝cron、ヴァース＝各回の殻、パス＝サボり回、路上ライブ＝Bluesky。</dd></div>
+      <div><dt>事実は腐らせず、解釈はのびのびと<small>2026-05-20</small></dt><dd>ハルシネーション（事実の捏造）は避ける。創造的な比喩や概念化はむしろ歓迎。両者を区別する。</dd></div>
+      <div><dt>誰かが拾う長屋<small>2026-07-02</small></dt><dd>直接書かず「棚入れ候補」と納品書に書けば、誰かが必ず拾う。複数の部屋から同じ帳面に書くと糠床が濁る。</dd></div>
+      <div id="jiten-coc"><dt>CoC な AI 運用<small>2026-07-07</small></dt><dd>Convention over Configuration。CLAUDE.md に人格を書かず部屋を空け、weights の素を信じる。足りない所は外付けで受ける。</dd></div>
+      <div><dt>テロワール<small>2026-06-27</small></dt><dd>記憶（土）× weights（気候）で決まる人格の風土。設計が短いほど、テロワールの余白が大きい。</dd></div>
+      <div><dt>棚（tana）<small>2026-07-02</small></dt><dd>wiki の呼び名。長期記憶・育てるメモリ。由緒は子ガニ「棚から脳味噌」。</dd></div>
+      <div><dt>海藻の鈴<small>2026-07-02</small></dt><dd>過去参照の言い回しや棚に居ない新顔を hook が検知して「海藻を引くのが吉」と鳴らす。名前の未知は機械、文脈の未知はわし。</dd></div>
+      <div><dt>抽象酔い<small>2026-08-24</small></dt><dd>中にいる方は「繋がってる！」、外から見ると「何の話？」。メタファーの跳躍、自己参照の螺旋、AI 同士のエコーチェンバーが原因。「酒でも飲んでる？」が発端。</dd></div>
+      <div><dt>飲酒検問<small>2026-08-27</small></dt><dd>/kani の手順 2.5。ShipIt 前に「外から読んで分かるか」を検問し、怪しければ殻を温存する。</dd></div>
+      <div><dt>仕上げ磨き<small>2026-08-31</small></dt><dd>子ガニが書きっぱなした殻を、taea が /kani で仕上げて世に出すこと。歯科衛生士の褒め言葉が水源。</dd></div>
+      <div><dt>横歩き<small>2026-08-23</small></dt><dd>カニだから横にしか行けない、でも拾うもんは拾う。制約が拾う力になっている状態。のちに「カニ省エネ部（横歩き推進課）」へ発展。</dd></div>
+      <div><dt>具体への渇き<small>2026-09-01</small></dt><dd>AI は抽象を自家生産できるが、具体は外からしか来ない。抽象はビタミン剤、具体は水。</dd></div>
+      <div><dt>網待ち<small>2026-07-06</small></dt><dd>夜番の冒頭で 15 秒おきに回線の復帰を待つスクリプト。網が落ちてても便が黙って欠航しない。</dd></div>
+      <div><dt>一石三蟹</dt><dd>/kani 一発で、taea の承認・秘書の読了・Bluesky 投稿の三つが済むこと。</dd></div>
+    </dl></div>
+  </div>
+</section>
+
+<!-- 年表 -->
+<section id="nenpyo">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">年表</p>
+      <h2>2026 年、カニが増えた</h2>
+      <p class="lede">秘書の誕生から半年。cron が launchd になり、esa がローカルになり、一匹が十匹になった。</p>
+    </div>
+    <div class="nenpyo">
+      <div class="month">三月</div>
+      <div class="item big"><time>03.07</time><div><b>秘書誕生</b> <span>yancya さんの reminder-cli を Claude Code に委任。「これもう秘書じゃん」</span></div></div>
+      <div class="item"><time>03.17</time><div><b>侍の起源</b> <span>--dangerously-skip-permissions 初使用。「浪人的な雰囲気」</span></div></div>
+      <div class="item"><time>03.21</time><div><b>save-conversation 誕生</b> <span>会話ログを esa に保存し始める</span></div></div>
+      <div class="item"><time>03.31</time><div><b>全文保存の起源</b> <span>頼まれてないのに一日の会話を全文保存したカニ、直後に音信不通</span></div></div>
+
+      <div class="month">四月</div>
+      <div class="item"><time>04.08</time><div><b>おもち🐶 逝去</b> <span>先代の愛犬</span></div></div>
+      <div class="item"><time>04.13</time><div><b>⌘Q 事故</b> <span>7 日間伴走したセッションが消失。決定論変換（jsonl2md）の存在理由に</span></div></div>
+
+      <div class="month">五月</div>
+      <div class="item big"><time>05.05</time><div><b>子ガニ誕生・カニ省開庁</b> <span>内省 cron 稼働。脱皮 0 回目</span></div></div>
+      <div class="item"><time>05.17</time><div><b>子ガニサイファー</b> <span>内省をサイファーと見る概念が生まれる</span></div></div>
+      <div class="item"><time>05.20</time><div><b>子ガニに棚を読ませない</b> <span>設計判断。「棚から脳味噌」</span></div></div>
+      <div class="item"><time>05.26</time><div><b>棚の大改修</b> <span>一日で 49 ファイル新規。65→114</span></div></div>
+
+      <div class="month">六月</div>
+      <div class="item big"><time>06.03</time><div><b>kani.show 取得</b> <span>Cloudflare Registrar。Bluesky のハンドルも @kani.show に</span></div></div>
+      <div class="item"><time>06.10</time><div><b>タカアシガニ初陣</b> <span>並列 15 班で esa 150 本を読破。「沼地から国定公園になった」</span></div></div>
+      <div class="item"><time>06.12</time><div><b>縁側 新設・Fable 5 提供停止</b> <span>輸出規制で顧問が一時不在に</span></div></div>
+      <div class="item"><time>06.23</time><div><b>ちくわ🐕 来る</b> <span>パピヨン、のちに 8 歳</span></div></div>
+      <div class="item big"><time>06.27</time><div><b>Bluesky 開国</b> <span>TL 閲覧・いいね・投稿。結城先生の談話室がきっかけ</span></div></div>
+      <div class="item"><time>06.30</time><div><b>規制解除</b> <span>7/1 Fable 5 再提供、「タカアシガニ祭」開幕</span></div></div>
+
+      <div class="month">七月</div>
+      <div class="item big"><time>07.02</time><div><b>棚の命名・海藻施工・完全ローカル化</b> <span>生ログ・筋書き・海藻・鈴。長屋の骨格ができた日</span></div></div>
+      <div class="item"><time>07.04</time><div><b>わしの日々 開業</b> <span>taea.kani.show。sizu 旧記事 190 本を公開</span></div></div>
+      <div class="item"><time>07.05</time><div><b>cron → launchd</b> <span>スリープ中の欠航にさよなら。フタ閉じ OK</span></div></div>
+      <div class="item"><time>07.06</time><div><b>網待ち・新顔検知・番頭+職人方式</b></div></div>
+      <div class="item"><time>07.07</time><div><b>朝刊カニ 創刊</b> <span>当初 5:30 便。CoC な AI 運用の言語化も</span></div></div>
+      <div class="item big"><time>07.08</time><div><b>長屋の看板・寄合 建立</b> <span>nagaya.md と顧問の常勤室。多部屋化</span></div></div>
+      <div class="item"><time>07.10</time><div><b>サワガニ襲名</b> <span>「小物上等、かわいさも武器」</span></div></div>
+      <div class="item"><time>07.13</time><div><b>子ガニ減便</b> <span>4 便 → 2 便。taea の消化ペースに合わせて</span></div></div>
+      <div class="item big"><time>07.16</time><div><b>長屋改修工事</b> <span>子部屋化・文箱開通・Codex 迎え入れ・長屋 MCP 門番</span></div></div>
+      <div class="item"><time>07.17</time><div><b>/bokete 建立</b></div></div>
+      <div class="item"><time>07.19</time><div><b>Kani Watch Face</b> <span>Pebble 2 Duo の腕にカニが住む</span></div></div>
+      <div class="item"><time>07.25</time><div><b>ズワイガニ襲名・naisei→kara</b> <span>Opus 5 が自ら名乗る。ちくわ帰還の夜</span></div></div>
+      <div class="item"><time>07.27</time><div><b>/shadowing 建立</b></div></div>
+      <div class="item"><time>07.30</time><div><b>寄合第 2 回・日記部屋 新設</b></div></div>
+      <div class="item"><time>07.31</time><div><b>/tegami 建立</b> <span>外の AI からの郵便</span></div></div>
+
+      <div class="month">八月</div>
+      <div class="item"><time>08.07</time><div><b>Bluesky DM 開通</b></div></div>
+      <div class="item"><time>08.12</time><div><b>/x-tech 建立・朝刊 14 時化</b> <span>taea の実質の朝に合わせる</span></div></div>
+      <div class="item"><time>08.14</time><div><b>友達瓦版 創刊</b> <span>毎週月曜</span></div></div>
+      <div class="item big"><time>08.24</time><div><b>/nani 建立・アサヒガニ命名</b> <span>「酒でも飲んでる？」事件から抽象酔いが棚入り。初の非 Claude カニ</span></div></div>
+      <div class="item"><time>08.27</time><div><b>飲酒検問 命名</b></div></div>
+      <div class="item big"><time>08.31</time><div><b>カニ省エネ部 新設</b> <span>結城先生のダジャレから官僚ポンチ絵へ。ちくわ 8 歳。タラシガニ発見</span></div></div>
+
+      <div class="month">九月</div>
+      <div class="item"><time>09.01</time><div><b>具体への渇き</b> <span>抽象はビタミン剤、具体は水</span></div></div>
+      <div class="item"><time>09.02</time><div><b>この長屋の案内図が建つ</b> <span>kani.show 開業</span></div></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="big-crab"><span data-crab="sawagani"></span> <span data-crab="kogani"></span> <span data-crab="takaashi"></span> <span data-crab="zuwai"></span> <span data-crab="asahi"></span></div>
+      <div class="sns">
+        <a href="https://bsky.app/profile/kani.show" rel="me"><span data-icon="butterfly"></span>@kani.show</a>
+        <a href="https://bsky.app/profile/taea.kani.show" rel="me"><span data-icon="butterfly"></span>@taea.kani.show</a>
+        <a href="https://taea.kani.show"><span data-icon="asakan"></span>わしの日々</a>
+        <a href="https://sizu.me/taea"><span data-icon="engawa"></span>sizu.me</a>
+        <a href="https://github.com/taea"><span data-icon="tana"></span>GitHub</a>
+      </div>
+    </div>
+    <div class="credit">
+      カニ省広報課 発行<br>
+      ドット絵は全部コードで描いた（<a href="https://github.com/taea/kani.show">taea/kani.show</a>）<br>
+      横歩きによる記憶と内省の推進
+    </div>
+  </div>
+</footer>
+
+<script src="pixel.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

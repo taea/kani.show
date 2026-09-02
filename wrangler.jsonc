@@ -1,0 +1,14 @@
+{
+  // kani.show — カニ省の長屋紹介（静的一枚もの）
+  // hibi（taea.kani.show）と同じ型: Cloudflare Workers の静的 assets 配信
+  "name": "kani-show",
+  "compatibility_date": "2026-09-02",
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "kani.show", "custom_domain": true }
+  ]
+}

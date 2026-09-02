@@ -1,0 +1,316 @@
+/* kani.show — カニ省の長屋 */
+/* 色: 茹でガニの赤 × 身の白 × 味噌の黄土。夜は海の底 */
+:root {
+  color-scheme: light dark;
+  --kani: #D9452B;
+  --kani-deep: #8E2417;
+  --kani-hot: #F2735A;
+  --shiro: #FFF6EC;
+  --shiro-2: #F6E9D8;
+  --miso: #C98A3A;
+  --sumi: #24201C;
+  --sumi-2: #5C534B;
+  --umi: #10262E;
+  --umi-2: #17343E;
+  --shio: #3F9A94;
+
+  --bg: var(--shiro);
+  --bg-2: var(--shiro-2);
+  --fg: var(--sumi);
+  --fg-2: var(--sumi-2);
+  --line: #E2CDB4;
+  --card: #FFFDF9;
+  --sky-1: #F7C8A6;
+  --sky-2: #E89A7A;
+  --sky-3: #B96C6B;
+  --sky-4: #5E4A6E;
+
+  /* ドット絵の色（pixel.js が var() で参照） */
+  --c-sawa: #C8422C; --c-sawa-d: #5E1A10; --c-sawa-h: #F0785C;
+  --c-ko: #E8613F; --c-ko-d: #7A2A18; --c-ko-h: #FFA07A;
+  --c-taka: #B8452A; --c-taka-d: #4E1A0E; --c-taka-h: #E07A50;
+  --c-zuwai: #9E3A2A; --c-zuwai-d: #3E140C; --c-zuwai-h: #D8664A;
+  --c-asahi: #E89A2E; --c-asahi-d: #7A4210; --c-asahi-h: #FFD36E;
+  --c-paper: #FFF6EC; --c-ink: #24201C; --c-miso: #C98A3A; --c-seaweed: #3E8F5E;
+  --c-kani: #D9452B; --c-kani-deep: #8E2417; --c-shio: #5FB0AA; --c-yellow: #F2C14E;
+  --c-roof: #4A4A56; --c-roof-d: #33333D; --c-roof-h: #6E6E7C;
+  --c-wall: #C9A46B; --c-wall-d: #B08D55; --c-pillar: #5A3A22; --c-sign: #F2E6C8;
+  --c-shoji: #FFF6EC; --c-chochin: #E85A3A; --c-window: #8E6A3E;
+  --c-ground: #6B5A48; --c-ground-h: #8C7A62;
+
+  --font-dot: "DotGothic16", "BIZ UDPGothic", "Hiragino Sans", sans-serif;
+  --font-body: "BIZ UDPGothic", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  --max: 1080px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: var(--umi);
+    --bg-2: var(--umi-2);
+    --fg: var(--shiro);
+    --fg-2: #B9C6C9;
+    --line: #2B4A55;
+    --card: #142E38;
+    --sky-1: #2B4A63; --sky-2: #1E3A50; --sky-3: #172C40; --sky-4: #0E1C2A;
+    --c-paper: #E8DCC8; --c-ink: #1A1410; --c-sign: #E8DCC8; --c-shoji: #F6E9D8;
+    --c-window: #F2C14E;
+    --c-ground: #3B3A44; --c-ground-h: #56556A;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: var(--umi);
+  --bg-2: var(--umi-2);
+  --fg: var(--shiro);
+  --fg-2: #B9C6C9;
+  --line: #2B4A55;
+  --card: #142E38;
+  --sky-1: #2B4A63; --sky-2: #1E3A50; --sky-3: #172C40; --sky-4: #0E1C2A;
+  --c-paper: #E8DCC8; --c-ink: #1A1410; --c-sign: #E8DCC8; --c-shoji: #F6E9D8;
+  --c-window: #F2C14E;
+  --c-ground: #3B3A44; --c-ground-h: #56556A;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--kani); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--kani-deep); }
+:focus-visible { outline: 3px solid var(--miso); outline-offset: 2px; }
+img, svg { max-width: 100%; }
+.px { image-rendering: pixelated; image-rendering: crisp-edges; display: inline-block; vertical-align: bottom; }
+
+/* --- 型 --- */
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+h1, h2, h3, .dot { font-family: var(--font-dot); font-weight: 400; letter-spacing: 0.02em; }
+h2 {
+  font-size: 28px; line-height: 1.3; margin: 0 0 8px;
+}
+h3 { font-size: 18px; margin: 0 0 4px; }
+.eyebrow {
+  font-family: var(--font-dot); font-size: 13px; color: var(--kani);
+  letter-spacing: 0.12em; margin: 0 0 6px;
+}
+.lede { color: var(--fg-2); margin: 0 0 24px; max-width: 62ch; }
+section { padding: 64px 0; scroll-margin-top: 70px; }
+section + section { border-top: 4px double var(--line); }
+.sec-head { margin-bottom: 28px; }
+
+/* --- 暖簾（ヘッダー） --- */
+.noren {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--kani);
+  color: var(--shiro);
+  border-bottom: 4px solid var(--kani-deep);
+}
+.noren .wrap { display: flex; align-items: center; gap: 16px; min-height: 52px; }
+.noren .brand { display: flex; align-items: center; gap: 10px; color: var(--shiro); text-decoration: none; font-family: var(--font-dot); font-size: 18px; white-space: nowrap; flex-shrink: 0; }
+.noren .brand .px { height: 22px; --c-sawa: var(--shiro); --c-sawa-d: var(--kani-deep); --c-sawa-h: #FFFFFF; }
+.noren nav { margin-left: auto; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+.noren nav::-webkit-scrollbar { display: none; }
+.noren nav a {
+  color: var(--shiro); text-decoration: none; font-family: var(--font-dot); font-size: 14px;
+  padding: 6px 10px; white-space: nowrap; border-bottom: 3px solid transparent;
+}
+.noren nav a:hover, .noren nav a[aria-current] { border-bottom-color: var(--shiro); }
+/* 暖簾の切れ込み */
+.noren::after {
+  content: ""; display: block; height: 10px;
+  background: repeating-linear-gradient(90deg, var(--kani-deep) 0 22px, transparent 22px 24px);
+  position: absolute; left: 0; right: 0; bottom: -14px; pointer-events: none;
+  -webkit-mask: linear-gradient(#000, #000); mask: linear-gradient(#000, #000);
+}
+
+/* --- ヒーロー: 長屋の絵 --- */
+.hero { padding: 0; border: 0; }
+.hero-sky {
+  background: linear-gradient(180deg, var(--sky-4) 0%, var(--sky-3) 35%, var(--sky-2) 70%, var(--sky-1) 100%);
+  position: relative; overflow: hidden;
+}
+.hero-sky .wrap { position: relative; padding-top: 40px; }
+.hero-copy { color: var(--shiro); text-shadow: 0 2px 0 rgba(0,0,0,.35); max-width: 640px; margin-bottom: 8px; }
+.hero-copy .eyebrow { color: var(--shiro); opacity: .85; }
+.hero-copy h1 { font-size: clamp(34px, 6vw, 58px); line-height: 1.15; margin: 0 0 12px; }
+.hero-copy h1 small { display: block; font-size: .42em; opacity: .9; margin-top: 8px; letter-spacing: .1em; }
+.hero-copy p { margin: 0; font-size: 16px; max-width: 46ch; }
+/* 狭い画面では長屋を横にスクロール（横歩き） */
+.hero-scene { margin-top: 24px; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
+.hero-scene::-webkit-scrollbar { display: none; }
+.scene-inner { position: relative; min-width: 720px; }
+.hero-scene .px-nagaya { width: 100%; display: block; }
+.stars { position: absolute; inset: 0; pointer-events: none; }
+.stars i { position: absolute; width: 3px; height: 3px; background: var(--shiro); opacity: .7; }
+.stars i:nth-child(odd) { animation: twinkle 3s infinite alternate; }
+@keyframes twinkle { from { opacity: .3 } to { opacity: .9 } }
+.moon { position: absolute; right: 8%; top: 28px; width: 22px; height: 22px; background: #F6E3B4; }
+.moon::after { content: ""; position: absolute; left: -6px; top: -4px; width: 18px; height: 18px; background: var(--sky-4); }
+.hero-crabs { position: absolute; left: 0; right: 0; bottom: 3.2%; height: 6.5%; pointer-events: none; }
+.hero-crabs .walker { position: absolute; bottom: 0; height: 100%; animation: walk var(--dur, 40s) linear infinite; animation-delay: var(--delay, 0s); }
+.hero-crabs .walker .px { height: 100%; width: auto; }
+.hero-crabs .walker.tall .px { height: 130%; }
+.hero-crabs .walker.mini .px { height: 70%; }
+@keyframes walk { from { left: 0; transform: translateX(-100%); } to { left: 100%; transform: translateX(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .hero-crabs .walker { animation: none; }
+  .stars i { animation: none; }
+}
+/* 部屋の名札: 長屋の看板の上に載せる */
+.room-labels { position: absolute; left: 0; right: 0; top: 0; bottom: 0; pointer-events: none; }
+.room-labels a {
+  position: absolute; transform: translateX(-50%);
+  font-family: var(--font-dot); font-size: clamp(11px, 1.15vw, 13px); color: var(--sumi);
+  text-decoration: none; white-space: nowrap; pointer-events: auto; line-height: 1;
+}
+.room-labels a:hover { color: var(--kani-deep); text-decoration: underline; }
+.hero-ground { background: var(--bg-2); padding: 14px 0 18px; border-bottom: 4px solid var(--kani); }
+.hero-ground .wrap { display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: center; font-family: var(--font-dot); font-size: 14px; color: var(--fg-2); }
+.hero-ground b { color: var(--kani); font-weight: 400; font-size: 20px; }
+
+/* --- 基本理念 --- */
+.rinen { text-align: center; }
+.rinen blockquote {
+  font-family: var(--font-dot); font-size: clamp(22px, 3.6vw, 34px); margin: 0 0 12px; color: var(--kani);
+  line-height: 1.5;
+}
+.rinen p { max-width: 56ch; margin: 0 auto; color: var(--fg-2); }
+
+/* --- 住人 --- */
+.crabs { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+.crab-card {
+  background: var(--card); border: 2px solid var(--line); padding: 18px 18px 16px;
+  position: relative; display: flex; flex-direction: column; gap: 6px;
+  box-shadow: 4px 4px 0 var(--line);
+}
+.crab-card .px-crab { height: 56px; width: auto; align-self: flex-start; }
+.crab-card .px-takaashi { height: 70px; }
+.crab-card .px-kogani { height: 40px; }
+.crab-card h3 { font-size: 20px; margin-top: 8px; }
+.crab-card .role { font-family: var(--font-dot); color: var(--kani); font-size: 13px; }
+.crab-card .model { font-family: var(--font-dot); font-size: 12px; color: var(--fg-2); }
+.crab-card p { margin: 4px 0 0; font-size: 14px; color: var(--fg-2); line-height: 1.7; }
+.crab-card .hours { margin-top: auto; padding-top: 10px; font-family: var(--font-dot); font-size: 12px; }
+.crab-card .hours span { background: var(--kani); color: var(--shiro); padding: 2px 8px; }
+.crab-card.human { border-color: var(--miso); box-shadow: 4px 4px 0 var(--miso); }
+.crab-card.human .role { color: var(--miso); }
+.crab-card.human .hours span { background: var(--miso); }
+.crab-card .px-inu { height: 44px; width: auto; }
+
+/* --- 間取り --- */
+.rooms { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+.room {
+  background: var(--card); border: 2px solid var(--line); padding: 14px 14px 12px;
+  display: grid; grid-template-columns: 44px 1fr; gap: 4px 12px; align-items: start;
+}
+.room .px-icon { width: 40px; height: 40px; grid-row: span 3; }
+.room h3 { font-size: 16px; }
+.room .path { font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: var(--fg-2); word-break: break-all; }
+.room p { margin: 0; font-size: 13.5px; color: var(--fg-2); line-height: 1.65; }
+.room .who { font-family: var(--font-dot); font-size: 12px; color: var(--kani); }
+.rooms-note { margin-top: 18px; font-size: 13.5px; color: var(--fg-2); border-left: 4px solid var(--miso); padding-left: 12px; }
+
+/* --- 一日の時刻表 --- */
+.clock { position: relative; margin-top: 8px; }
+.clock-sky {
+  height: 40px; position: relative; border: 2px solid var(--line); border-bottom: 0;
+  background: linear-gradient(90deg,
+    var(--sky-4) 0%, var(--sky-4) 18%, var(--sky-2) 26%, var(--sky-1) 34%,
+    #CFE6EA 45%, #CFE6EA 62%, var(--sky-1) 72%, var(--sky-3) 82%, var(--sky-4) 90%, var(--sky-4) 100%);
+}
+:root[data-theme="dark"] .clock-sky, :root:not([data-theme="light"]) .clock-sky.dark-auto { }
+.clock-lane { height: 42px; position: relative; border: 2px solid var(--line); background: var(--bg-2); }
+.clock-lane .tick { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--line); }
+.clock-lane .tick i { position: absolute; top: 100%; left: 0; transform: translateX(-50%); font-family: var(--font-dot); font-size: 11px; color: var(--fg-2); margin-top: 4px; }
+.clock-sky .sun, .clock-sky .moon2 { position: absolute; top: 12px; width: 14px; height: 14px; transform: translateX(-50%); }
+.clock-sky .sun { background: #F2C14E; box-shadow: 0 0 0 3px rgba(242,193,78,.35); }
+.clock-sky .moon2 { background: #F6E3B4; }
+.clock-events { position: relative; margin-top: 30px; display: grid; gap: 8px; }
+.ev { display: grid; grid-template-columns: 64px 1fr; gap: 12px; align-items: baseline; padding: 6px 0; border-bottom: 1px dashed var(--line); }
+.ev time { font-family: var(--font-dot); color: var(--kani); font-size: 16px; }
+.ev b { font-weight: 700; }
+.ev span { color: var(--fg-2); font-size: 14px; }
+.ev.night time { color: var(--shio); }
+.ev .px-crab, .ev .px-icon { height: 22px; width: auto; vertical-align: -4px; margin-right: 6px; }
+.clock-marks { position: absolute; left: 0; right: 0; top: 40px; height: 42px; pointer-events: none; }
+.clock-marks .m { position: absolute; bottom: 5px; transform: translateX(-50%); }
+.clock-marks .m .px { height: 26px; width: auto; }
+
+/* --- 殻の流れ --- */
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(138px, 1fr)); gap: 0; counter-reset: step; }
+.flow .step {
+  position: relative; padding: 14px 14px 14px 16px; border: 2px solid var(--line); background: var(--card);
+  margin: 0 0 0 -2px; min-height: 120px;
+}
+.flow .step:first-child { margin-left: 0; }
+.flow .step::before {
+  counter-increment: step; content: counter(step);
+  font-family: var(--font-dot); color: var(--kani); font-size: 13px; display: block; margin-bottom: 4px;
+}
+.flow .step.gate { background: var(--kani); color: var(--shiro); border-color: var(--kani-deep); }
+.flow .step.gate::before { color: var(--shiro); }
+.flow .step.gate small { color: var(--shiro); opacity: .9; }
+.flow .step b { display: block; font-family: var(--font-dot); font-weight: 400; font-size: 16px; }
+.flow .step small { display: block; color: var(--fg-2); font-size: 12.5px; line-height: 1.6; margin-top: 4px; }
+.flow .step .px { height: 24px; width: auto; position: absolute; right: 10px; top: 10px; }
+.flow-note { margin-top: 14px; font-size: 13.5px; color: var(--fg-2); }
+
+/* --- 道具 --- */
+.tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+.tool { border: 2px solid var(--line); background: var(--card); padding: 12px 14px; }
+.tool code { font-family: var(--font-dot); color: var(--kani); font-size: 15px; }
+.tool p { margin: 2px 0 0; font-size: 13.5px; color: var(--fg-2); line-height: 1.65; }
+.tool .tag { font-family: var(--font-dot); font-size: 11px; color: var(--fg-2); float: right; }
+.tools-group { margin-top: 26px; }
+.tools-group h3 { font-size: 16px; color: var(--kani); margin-bottom: 10px; }
+
+/* --- 辞典 --- */
+.jiten { columns: 2; column-gap: 40px; }
+@media (max-width: 720px) { .jiten { columns: 1; } }
+.jiten dl { margin: 0; }
+.jiten div { break-inside: avoid; padding: 10px 0; border-bottom: 1px dashed var(--line); }
+.jiten dt { font-family: var(--font-dot); font-size: 17px; color: var(--kani); }
+.jiten dt small { font-size: 12px; color: var(--fg-2); margin-left: 8px; }
+.jiten dd { margin: 2px 0 0; font-size: 14px; color: var(--fg-2); line-height: 1.7; }
+
+/* --- 年表 --- */
+.nenpyo { position: relative; padding-left: 28px; border-left: 4px solid var(--kani); margin-left: 8px; }
+.nenpyo .month { font-family: var(--font-dot); font-size: 22px; color: var(--kani); margin: 28px 0 8px; position: relative; }
+.nenpyo .month:first-child { margin-top: 0; }
+.nenpyo .month::before {
+  content: ""; position: absolute; left: -38px; top: 8px; width: 16px; height: 16px; background: var(--kani); border: 2px solid var(--bg);
+}
+.nenpyo .item { display: grid; grid-template-columns: 52px 1fr; gap: 10px; padding: 5px 0; position: relative; }
+.nenpyo .item::before { content: ""; position: absolute; left: -34px; top: 15px; width: 8px; height: 8px; background: var(--line); }
+.nenpyo .item.big::before { background: var(--miso); width: 10px; height: 10px; left: -35px; }
+.nenpyo time { font-family: var(--font-dot); color: var(--fg-2); font-size: 14px; }
+.nenpyo .item b { font-weight: 700; }
+.nenpyo .item span { color: var(--fg-2); font-size: 14px; }
+.nenpyo .item .px { height: 18px; width: auto; vertical-align: -3px; margin-left: 6px; }
+
+/* --- 足元（フッター） --- */
+footer { background: var(--umi); color: var(--shiro); padding: 44px 0 36px; border-top: 6px solid var(--kani); }
+footer .wrap { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; }
+footer .sns { display: flex; flex-wrap: wrap; gap: 14px; }
+footer .sns a {
+  display: inline-flex; align-items: center; gap: 8px; color: var(--shiro); text-decoration: none;
+  font-family: var(--font-dot); font-size: 14px; border: 2px solid rgba(255,255,255,.25); padding: 6px 12px;
+}
+footer .sns a:hover { border-color: var(--kani-hot); color: var(--kani-hot); }
+footer .sns .px { height: 18px; width: auto; }
+footer .sns .g { width: 18px; height: 18px; }
+footer .credit { font-family: var(--font-dot); font-size: 12px; opacity: .75; text-align: right; line-height: 1.8; }
+footer .credit a { color: var(--shiro); }
+footer .big-crab .px { height: 64px; width: auto; }
+@media (max-width: 720px) {
+  footer .wrap { grid-template-columns: 1fr; }
+  footer .credit { text-align: left; }
+  section { padding: 44px 0; }
+  .flow .step { margin: -2px 0 0; }
+  .ev { grid-template-columns: 52px 1fr; }
+}

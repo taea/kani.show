@@ -1,0 +1,6 @@
+.claude/settings.local.json
+.wrangler/
+node_modules/
+.playwright-mcp/
+/*.png
+dist/_test.html
