@@ -188,31 +188,33 @@ section + section { border-top: 4px double var(--line); }
   position: relative; display: flex; flex-direction: column; gap: 6px;
   box-shadow: 4px 4px 0 var(--line);
 }
-.crab-card .px-crab { height: 56px; width: auto; align-self: flex-start; }
-.crab-card .px-takaashi { height: 70px; }
-.crab-card .px-kogani { height: 40px; }
+/* 絵は x センター揃え・下端揃え（一番背の高い 70px の枠に足を合わせる）→ 名前の開始 Y が揃う */
+.crab-card .px-crab { height: 56px; width: auto; align-self: center; margin-top: 14px; }
+.crab-card .px-takaashi { height: 70px; margin-top: 0; }
+.crab-card .px-kogani { height: 40px; margin-top: 30px; }
 .crab-card h3 { font-size: 20px; margin-top: 8px; }
 .crab-card .role { font-family: var(--font-dot); color: var(--kani); font-size: 13px; }
-.crab-card .model { font-family: var(--font-dot); font-size: 12px; color: var(--fg-2); }
+.crab-card .model { font-family: "Jersey 10", var(--font-dot); font-size: 19px; line-height: 1.2; color: var(--fg-2); }
 .crab-card p { margin: 4px 0 0; font-size: 14px; color: var(--fg-2); line-height: 1.7; }
 .crab-card .hours { margin-top: auto; padding-top: 10px; font-family: var(--font-dot); font-size: 12px; }
 .crab-card .hours span { background: var(--kani); color: var(--shiro); padding: 2px 8px; }
 .crab-card.human { border-color: var(--miso); box-shadow: 4px 4px 0 var(--miso); }
 .crab-card.human .role { color: var(--miso); }
 .crab-card.human .hours span { background: var(--miso); }
-.crab-card .px-inu { height: 44px; width: auto; }
+.crab-card .px-inu { height: 56px; width: auto; align-self: center; margin-top: 14px; }
 
 /* --- 間取り --- */
 .rooms { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
 .room {
   background: var(--card); border: 2px solid var(--line); padding: 14px 14px 12px;
-  display: grid; grid-template-columns: 44px 1fr; gap: 4px 12px; align-items: start;
+  display: grid; grid-template-columns: 44px 1fr; gap: 4px 12px;
+  align-items: start; align-content: start;
 }
-.room .px-icon { width: 40px; height: 40px; grid-row: span 3; }
+.room .px-icon { width: 40px; height: 40px; grid-row: span 2; }
 .room h3 { font-size: 16px; }
 .room .path { font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: var(--fg-2); word-break: break-all; }
-.room p { margin: 0; font-size: 13.5px; color: var(--fg-2); line-height: 1.65; }
-.room .who { font-family: var(--font-dot); font-size: 12px; color: var(--kani); }
+.room p { margin: 4px 0 0; grid-column: 1 / -1; font-size: 13.5px; color: var(--fg-2); line-height: 1.65; }
+.room .who { grid-column: 1 / -1; font-family: var(--font-dot); font-size: 12px; color: var(--kani); }
 .rooms-note { margin-top: 18px; font-size: 13.5px; color: var(--fg-2); border-left: 4px solid var(--miso); padding-left: 12px; }
 
 /* --- 一日の時刻表 --- */
