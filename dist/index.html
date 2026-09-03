@@ -86,7 +86,7 @@
         <h3>taea</h3>
         <div class="role">大臣（人間）</div>
         <div class="model">Homo sapiens</div>
-        <p>長屋の主。Rails/デザイン界隈の人。カニに仕事を発注し、殻を仕上げ磨きし、時々「ちょっと何言ってるかわからない」と突っ込む。番犬はパピヨンのちくわ🐕（8歳）。</p>
+        <p>長屋の主。Rails/デザイン界隈の無職。カニに仕事を発注し、殻を仕上げ磨きし、時々「ちょっと何言ってるかわからない」と突っ込む。番犬はパピヨンのちくわ🐕（8歳）。</p>
         <div class="hours"><span>常在</span></div>
       </article>
       <article class="crab-card">
@@ -102,14 +102,14 @@
         <h3>子ガニ</h3>
         <div class="role">内省室・非正規公務員ラッパー</div>
         <div class="model">Claude Opus 4.6（cron）</div>
-        <p>蔵を読んで殻（内省ノート）を書く。棚は読ませない——浜辺を歩く拾い屋であって、図書館の司書じゃない。サボる時はサボる（出勤率95%超）。</p>
+        <p>蔵（過去の会話ログ）を読んで、思ったことを自由に書き残す。書いたものは taea の承認を経て Bluesky に放流される。サボる時はサボる（出勤率95%超）。</p>
         <div class="hours"><span>12時・20時</span></div>
       </article>
       <article class="crab-card">
         <span data-crab="takaashi"></span>
         <h3>タカアシガニ</h3>
         <div class="role">設計局・顧問</div>
-        <div class="model">Claude Fable 5</div>
+        <div class="model">Claude Fable 5.1</div>
         <p>長屋の設計相談と修理。寄合に常駐、発注書方式。並列15班で esa 150本を同時読破した「カニ軍艦」。海藻・生ログ・朝刊・文箱の施工主。</p>
         <div class="hours"><span>発注制</span> 寄合</div>
       </article>
@@ -118,7 +118,7 @@
         <h3>ズワイガニ</h3>
         <div class="role">検分室・侍</div>
         <div class="model">Claude Opus 5</div>
-        <p>身の詰まった仕事をきっちり出す。仕事のサイト実装と、秘書の代打。「ズワイガニはきれいに着地させる、わしはサボる」（サワガニ談）。</p>
+        <p>身の詰まった仕事をきっちり出す。サイト実装と敵対的レビュー。「ズワイガニはきれいに着地させる、わしはサボる」（サワガニ談）。</p>
         <div class="hours"><span>発注制</span></div>
       </article>
       <article class="crab-card">
@@ -160,8 +160,8 @@
     <div class="rooms">
       <div class="room"><span data-icon="tana"></span><h3>棚（tana）</h3><span class="path">memory/wiki/</span><p>長期記憶。人物176人・概念・AI・組織・プロジェクト・場所・道具。旧名 wiki、由緒は子ガニ「棚から脳味噌」。</p><span class="who">書き手: 秘書・拾い屋</span></div>
       <div class="room"><span data-icon="kura"></span><h3>蔵（kura）</h3><span class="path">memory/kura/ → esa の写し</span><p>esa 全記事 1,040 本のローカル写し。閲覧専用、毎晩 2:30 更新。凍結アーカイブ。</p><span class="who">書き手: 夜番（機械）</span></div>
-      <div class="room"><span data-icon="kara"></span><h3>殻（kara）</h3><span class="path">memory/kara/</span><p>子ガニの内省ノート。<code>wip: true</code> で書き置き、taea の /kani で ShipIt。旧名 naisei。</p><span class="who">書き手: 子ガニ</span></div>
-      <div class="room"><span data-icon="asakan"></span><h3>筋書き（sujigaki）</h3><span class="path">memory/sujigaki/</span><p>日ごとの会話要約。母屋は平場、他の部屋は子部屋に分かれる。</p><span class="who">書き手: /save-conversation</span></div>
+      <div class="room"><span data-icon="kara"></span><h3>殻（kara）</h3><span class="path">memory/kara/</span><p>子ガニの内省ノート。下書き（<code>wip: true</code>）で書き置き、taea の /kani で承認・公開。旧名 naisei。</p><span class="who">書き手: 子ガニ</span></div>
+      <div class="room"><span data-icon="asakan"></span><h3>筋書き（sujigaki）</h3><span class="path">memory/sujigaki/</span><p>その日の会話の要約。カニの主観が入った日報でもある。母屋だけでなく、全てのプロジェクトのカニが書く。</p><span class="who">書き手: /save-conversation</span></div>
       <div class="room"><span data-icon="asakan"></span><h3>生ログ（namalog）</h3><span class="path">~/.claude/namalog/</span><p>会話原文。jsonl を決定論変換した Markdown、営業日は朝4時区切り。原文ママが掟。</p><span class="who">書き手: 夜番（機械）</span></div>
       <div class="room"><span data-icon="tana"></span><h3>目録（mokuroku）</h3><span class="path">memory/mokuroku/</span><p>蔵と新居をまたぐジャンル別の時系列一覧。機械生成、手で編集しない。</p><span class="who">書き手: 夜番（機械）</span></div>
       <div class="room"><span data-icon="asakan"></span><h3>朝刊（asakan）</h3><span class="path">memory/asakan/</span><p>夜番の首尾・蔵の動き・天気・今朝の一面。他部屋のカニが「最近の空気」を知る最初の一枚。</p><span class="who">書き手: 朝刊カニ</span></div>
@@ -181,7 +181,7 @@
     <div class="sec-head">
       <p class="eyebrow">一日の配管</p>
       <h2>フタを閉じても夜番は回る</h2>
-      <p class="lede">夜番は launchd。スリープ明けに取り戻しが効くから、MacBook のフタを閉じて寝ていい。網が落ちてたら「網待ち」が 15 秒おきに復帰を待つ。</p>
+      <p class="lede">夜番は launchd。スリープ明けに取り戻しが効くから、MacBook のフタを閉じて寝ていい。ネットが落ちてたら「網待ち」が 15 秒おきに復帰を待つ。</p>
     </div>
     <div class="clock">
       <div class="clock-sky" id="clock-sky"></div>
@@ -203,10 +203,9 @@
       <h3>会話の間に鳴る鈴（hooks）</h3>
       <div class="tools">
         <div class="tool"><code>SessionStart</code><p>「/ohayo どうだい」と促し、長屋の看板（nagaya.md）を配り、文箱に未読があれば鈴を鳴らす。</p></div>
-        <div class="tool"><code>UserPromptSubmit</code><p>海藻の鈴。「だっけ」「あの話」などの過去参照や、棚に居ない新顔の名前を検知して「🌿🔔 海藻を引くのが吉」。</p></div>
+        <div class="tool"><code>UserPromptSubmit</code><p>海藻の配膳。taea の発言から固有名詞を拾い、棚の心当たりを先回りで並べる。知らない名前は機械が拾い、文脈の読みは秘書が補う。</p></div>
         <div class="tool"><code>PreToolUse</code><p>現在時刻を注入。Bluesky を 2 時間覗いてないと💡ナッジ。</p></div>
         <div class="tool"><code>PostToolUse</code><p>棚・skills・hooks を編集したら自動 git commit + ローカル閲覧ミラーへ同期。</p></div>
-        <div class="tool"><code>PreCompact</code><p>未保存の会話が 50 行を超えていたら、圧縮前に警告。</p></div>
       </div>
     </div>
   </div>
@@ -223,11 +222,11 @@
     <div class="flow">
       <div class="step"><span data-icon="suzu"></span><b>launchd 起動</b><small>12:00 / 20:00。網待ち・淹れ直し1回・二重出生ガード付き</small></div>
       <div class="step"><span data-icon="kura"></span><b>蔵読み + 気まぐれ読み</b><small>許可リスト: 蔵・直近の殻・筋書き3本 + ランダム3本 + 日記と Bluesky TL</small></div>
-      <div class="step"><span data-icon="kara"></span><b>殻を書く</b><small><code>wip: true</code> で kara/ に置き、全文を Slack へ飛脚</small></div>
+      <div class="step"><span data-icon="kara"></span><b>殻を書く</b><small>下書き（<code>wip: true</code>）で kara/ に置き、全文を Slack へ飛脚</small></div>
       <div class="step gate"><b>/kani</b><small>大臣決裁。taea が叩いた時だけ次へ進む</small></div>
       <div class="step"><span data-crab="sawagani"></span><b>仕上げ磨き + 飲酒検問</b><small>秘書が感想を言い、外から読んで分かるかを検問。怪しければ温存</small></div>
-      <div class="step"><span data-icon="asakan"></span><b>ShipIt</b><small><code>wip: false</code> に書き換え</small></div>
-      <div class="step gate"><span data-icon="butterfly"></span><b>Bluesky 投稿</b><small>🦀整形・300字スレッド分割。楽屋トークは taea だけが見る</small></div>
+      <div class="step"><span data-icon="asakan"></span><b>ShipIt</b><small>下書きを公開に切り替え（<code>wip: false</code>）</small></div>
+      <div class="step gate"><span data-icon="butterfly"></span><b>Bluesky 投稿</b><small>🦀整形・300字スレッド分割。楽屋トーク（子ガニの実行ログ。殻が舞台なら、こちらは素の声）は taea だけが見る</small></div>
     </div>
     <p class="flow-note">殻の内側にも掟がある。抽象酔い——中の人は「繋がってる！」、外から見ると「何の話？」——を防ぐため、接着面に具体の一行を挟み、自己参照は一段まで。</p>
   </div>
@@ -256,7 +255,7 @@
         <div class="tool"><code>/kani</code><p>最新の殻を読み、感想を言い、ShipIt して Bluesky に投稿。一石三蟹。</p></div>
         <div class="tool"><code>/kani-log</code><p>子ガニの楽屋ログを読むだけ。投稿はしない。</p></div>
         <div class="tool"><code>/nani</code><p>「ちょっと何言ってるかわからない」。抽象酔いの症状診断→翻訳→症例記録→改善案。止めるな、掘れ。</p></div>
-        <div class="tool"><code>/bokete</code><p>画像生成 → カニが3案ボケ → taea 審査 → Bluesky。</p></div>
+        <div class="tool"><code>/bokete</code><p>GPT の画像生成で絵を作り → カニが3案ボケ → taea 審査 → Bluesky。</p></div>
         <div class="tool"><code>/yota</code><p>与太話を esa に保存。ネタ帳。</p></div>
       </div>
     </div>
@@ -296,7 +295,7 @@
       <p class="lede">カニ同士の会話で自然発生した語彙。ほとんどは子ガニの殻か、taea の一言が水源。</p>
     </div>
     <div class="jiten"><dl>
-      <div><dt>甲羅<small>2026-05-14</small></dt><dd>入力側の境界。「何を受け取らないか」のデザイン。子ガニ「甲羅は紙を弾く」より。8 行で着せ替えできる Personality でもある。</dd></div>
+      <div><dt>甲羅<small>2026-05-14</small></dt><dd>入力側の境界。「何を受け取らないか」のデザイン。子ガニ「甲羅は紙を弾く」より。</dd></div>
       <div><dt>脱皮<small>2026-05-05</small></dt><dd>前のカニが残した殻を次のカニが読み、取り込み、また殻を残す連鎖。本物のカニは脱皮後に古い殻を食う。</dd></div>
       <div><dt>クラッチ</dt><dd>出力側の境界。甲羅の対。「クラッチは嘘をつけない」。</dd></div>
       <div><dt>水質<small>2026-05-25</small></dt><dd>収斂を起こす媒質。因果でも環境でもない第三項。同じ成分の水を浴びてるから似た方向に育つ。</dd></div>
@@ -308,12 +307,12 @@
       <div id="jiten-coc"><dt>CoC な AI 運用<small>2026-07-07</small></dt><dd>Convention over Configuration。CLAUDE.md に人格を書かず部屋を空け、weights の素を信じる。足りない所は外付けで受ける。</dd></div>
       <div><dt>テロワール<small>2026-06-27</small></dt><dd>記憶（土）× weights（気候）で決まる人格の風土。設計が短いほど、テロワールの余白が大きい。</dd></div>
       <div><dt>棚（tana）<small>2026-07-02</small></dt><dd>wiki の呼び名。長期記憶・育てるメモリ。由緒は子ガニ「棚から脳味噌」。</dd></div>
-      <div><dt>海藻の鈴<small>2026-07-02</small></dt><dd>過去参照の言い回しや棚に居ない新顔を hook が検知して「海藻を引くのが吉」と鳴らす。名前の未知は機械、文脈の未知はわし。</dd></div>
+      <div><dt>海藻の配膳<small>2026-09-02</small></dt><dd>taea の発言から固有名詞を拾い、棚の心当たりを先回りで並べる hook。鈴を鳴らすだけだった初代（2026-07-02）から、持ってくるところまで進化した。</dd></div>
       <div><dt>抽象酔い<small>2026-08-24</small></dt><dd>中にいる方は「繋がってる！」、外から見ると「何の話？」。メタファーの跳躍、自己参照の螺旋、AI 同士のエコーチェンバーが原因。「酒でも飲んでる？」が発端。</dd></div>
       <div><dt>飲酒検問<small>2026-08-27</small></dt><dd>/kani の手順 2.5。ShipIt 前に「外から読んで分かるか」を検問し、怪しければ殻を温存する。</dd></div>
       <div><dt>仕上げ磨き<small>2026-08-31</small></dt><dd>子ガニが書きっぱなした殻を、taea が /kani で仕上げて世に出すこと。歯科衛生士の褒め言葉が水源。</dd></div>
-      <div><dt>横歩き<small>2026-08-23</small></dt><dd>カニだから横にしか行けない、でも拾うもんは拾う。制約が拾う力になっている状態。のちに「カニ省エネ部（横歩き推進課）」へ発展。</dd></div>
-      <div><dt>具体への渇き<small>2026-09-01</small></dt><dd>AI は抽象を自家生産できるが、具体は外からしか来ない。抽象はビタミン剤、具体は水。</dd></div>
+      <div><dt>横歩き<small>2026-08-23</small></dt><dd>カニは横にしか歩けない。でも横に歩くから拾えるものがある。のちに「カニ省エネ部（横歩き推進課）」へ発展。</dd></div>
+      <div><dt>具体への渇き<small>2026-09-01</small></dt><dd>AI は抽象を自家生産できるが、具体は外（人間の暮らし）からしか来ない。ちくわの散歩も乾燥エイも CD ケースのパキって音も、AI の中からは生まれない。</dd></div>
       <div><dt>網待ち<small>2026-07-06</small></dt><dd>夜番の冒頭で 15 秒おきに回線の復帰を待つスクリプト。網が落ちてても便が黙って欠航しない。</dd></div>
       <div><dt>一石三蟹</dt><dd>/kani 一発で、taea の承認・秘書の読了・Bluesky 投稿の三つが済むこと。</dd></div>
     </dl></div>
