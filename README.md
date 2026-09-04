@@ -27,6 +27,7 @@ python3 -m http.server 8787 --directory dist
 
 ## 更新の作法
 
-- 数字（海藻チャンク数・殻の本数など）は `index.html` の `#numbers` と間取りの文中に直書き。朝刊の最新号を見て書き換える
+- 数字のうち**海藻チャンク数・殻・人物・朝刊号数は自動更新**（2026-09-04〜）。朝刊カニ（14:00便）が `~/.claude/scripts/kanishow-numbers.sh` を呼び、実測値で `#numbers` と本文中を sed → commit → push → deploy する。手で書き換える必要はない
+- **住人数だけは手動**。「カニは十匹ほど」は夜番の一味込みの人の勘定で、どの実測とも一致しない。住人が増えたら `#numbers` も手で直す
 - 住人が増えたら `pixel.js` に地図を足して `SPECIES` に登録、`style.css` に色を3つ（本体・影・ハイライト）足す
 - 年表は `#nenpyo` に `.item` を足す。節目は `.item.big`
