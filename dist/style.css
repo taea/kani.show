@@ -173,6 +173,22 @@ section + section { border-top: 4px double var(--line); }
 .hero-ground .wrap { display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: center; font-family: var(--font-dot); font-size: 14px; color: var(--fg-2); }
 .hero-ground b { color: var(--kani); font-weight: 400; font-size: 20px; }
 
+/* --- 今日の秘書の一言（縁側の表札）。数字帯の直下の短冊。表札が無いうちは hidden --- */
+.hitokoto { background: var(--card); padding: 14px 0 16px; border-bottom: 2px dashed var(--line); }
+.hitokoto[hidden] { display: none; }
+.hitokoto .wrap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px; }
+.hitokoto p { margin: 0; }
+.hitokoto-label { font-family: var(--font-dot); font-size: 13px; color: var(--kani); letter-spacing: 0.12em; display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+.hitokoto-label .px-crab { height: 16px; width: auto; }
+.hitokoto-body { font-family: var(--font-dot); font-size: clamp(16px, 2.4vw, 20px); line-height: 1.6; color: var(--fg); flex: 1 1 24ch; }
+.hitokoto-date { font-family: var(--font-dot); font-size: 12px; color: var(--fg-2); margin-left: auto; white-space: nowrap; }
+.hitokoto-body { min-width: 0; overflow-wrap: anywhere; }
+@media (max-width: 720px) {
+  /* 狭い幅は「見出し／一言／日付」の三段積み */
+  .hitokoto-label, .hitokoto-body { flex-basis: 100%; }
+  .hitokoto-date { margin-left: 0; }
+}
+
 /* --- 基本理念 --- */
 .rinen { text-align: center; }
 .rinen blockquote {

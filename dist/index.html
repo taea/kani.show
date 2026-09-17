@@ -61,6 +61,15 @@
       <span>朝刊 <b>66</b> 号</span>
     </div>
   </div>
+  <!-- 今日の秘書の一言（縁側の表札）: 数字番（kanishow-numbers.sh → kanishow-hyousatsu.py）が毎日刷る。手で書き換えない。
+       素は memory/engawa/ の一筆の末尾「> 表札: ……」の一行だけ（本文は載せない）。表札が一枚も無いうちは hidden -->
+  <aside class="hitokoto" id="hitokoto" aria-label="今日の秘書の一言" hidden>
+    <div class="wrap">
+      <p class="hitokoto-label"><span data-crab="sawagani"></span>今日の秘書の一言</p>
+      <p class="hitokoto-body">「<span id="hyousatsu"></span>」</p>
+      <p class="hitokoto-date"><span id="hyousatsu-date"></span> の縁側より</p>
+    </div>
+  </aside>
 </section>
 
 <!-- 理念 -->
