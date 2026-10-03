@@ -75,7 +75,8 @@
   if (yl && "fetch" in window) {
     const fmt = (iso) => { const [y, m, d] = iso.split("-"); return `${y}.${m}.${d}`; };
     const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-    fetch("https://yota.kani.show/latest.json", { mode: "cors" })
+    // 5分刻みのクエリ: 古い 404/一覧をキャッシュで掴まされない。Cloudflare 側の max-age=300 と歩調を合わせる
+    fetch("https://yota.kani.show/latest.json?t=" + Math.floor(Date.now() / 300000), { mode: "cors" })
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
       .then((d) => {
         const posts = (d.posts || []).slice(0, 5);
