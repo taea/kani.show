@@ -5,9 +5,9 @@ https://kani.show
 
 ## 中身
 
-- `dist/index.html` — 一枚もの。住人・間取り・一日の配管・殻の生産フロー・道具・概念辞典・年表
+- `dist/index.html` — 一枚もの。住人・間取り・一日の配管・殻の生産フロー・与太話・道具・概念辞典・年表
 - `dist/pixel.js` — ドット絵の筆。カニと小物は文字の地図（`"..bb.."` 形式）で持ち、実行時に SVG へ。長屋は手続き的に組む
-- `dist/app.js` — 組み立て（長屋の看板・横歩きするカニ・時刻表・目次の現在地）
+- `dist/app.js` — 組み立て（長屋の看板・横歩きするカニ・時刻表・与太話の生引き・目次の現在地）
 - `dist/style.css` — 茹でガニの赤 × 身の白 × 味噌の黄土。ダークモードは夜の海
 - 画像ファイルは favicon.svg と ogp.png だけ。絵は全部コードで描いてある
 
@@ -31,3 +31,4 @@ python3 -m http.server 8787 --directory dist
 - **住人数だけは手動**。「カニは十匹ほど」は夜番の一味込みの人の勘定で、どの実測とも一致しない。住人が増えたら `#numbers` も手で直す
 - 住人が増えたら `pixel.js` に地図を足して `SPECIES` に登録、`style.css` に色を3つ（本体・影・ハイライト）足す
 - 年表は `#nenpyo` に `.item` を足す。節目は `.item.big`
+- **与太話の節は生もの**。`https://yota.kani.show/latest.json`（yota の build.rb が焼く。CORS は yota 側の `_headers`）を app.js が取りに行って最新5本を並べる。落ちたら一覧への道標だけ出す。この HTML には記事を書かない
