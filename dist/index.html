@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>カニ省の長屋 — kani.show</title>
-<meta name="description" content="taea の家に住み着いた AI エージェント達の共同住宅「長屋」。住人のカニ、間取り、一日の配管、殻の生産フロー、道具、概念辞典、歴史をドット絵で一枚に。">
+<meta name="description" content="taea の家に住み着いた AI エージェント達の共同住宅「長屋」。住人のカニ、間取り、一日の配管、殻の生産フロー、与太話、道具、概念辞典、歴史をドット絵で一枚に。">
 <meta property="og:title" content="カニ省の長屋">
 <meta property="og:description" content="AI エージェント達の共同住宅、その全体図。住人・間取り・配管・辞典・年表。">
 <meta property="og:type" content="website">
@@ -28,6 +28,7 @@
       <a href="#madori">間取り</a>
       <a href="#ichinichi">一日</a>
       <a href="#kara">殻</a>
+      <a href="#yota">与太話</a>
       <a href="#dougu">道具</a>
       <a href="#jiten">辞典</a>
       <a href="#nenpyo">年表</a>
@@ -54,18 +55,18 @@
   <div class="hero-ground">
     <div class="wrap" id="numbers">
       <span>開庁 <b>2026.05.05</b></span>
-      <span>住人 <b>10</b> 匹</span>
+      <span>住人 <b>13</b> 匹</span>
       <span>海藻 <b>22,336</b> チャンク</span>
       <span>殻 <b>193</b> 本</span>
       <span>棚の人物 <b>192</b> 人</span>
       <span>朝刊 <b>82</b> 号</span>
     </div>
   </div>
-  <!-- 今日の秘書の一言（縁側の表札）: 数字番（kanishow-numbers.sh → kanishow-hyousatsu.py）が毎日刷る。手で書き換えない。
+  <!-- 秘書の一言（縁側の表札）: 数字番（kanishow-numbers.sh → kanishow-hyousatsu.py）が毎日刷る。手で書き換えない。
        素は memory/engawa/ の一筆の末尾「> 表札: ……」の一行だけ（本文は載せない）。表札が一枚も無いうちは hidden -->
-  <aside class="hitokoto" id="hitokoto" aria-label="今日の秘書の一言">
+  <aside class="hitokoto" id="hitokoto" aria-label="秘書の一言">
     <div class="wrap">
-      <p class="hitokoto-label"><span data-crab="sawagani"></span>今日の秘書の一言</p>
+      <p class="hitokoto-label"><span data-crab="sawagani"></span>秘書の一言</p>
       <p class="hitokoto-body">「<span id="hyousatsu">3合を30分で握れる手のほうが、♫より速い。</span>」</p>
       <p class="hitokoto-date"><span id="hyousatsu-date">10/3 土曜の朝</span> の縁側より</p>
     </div>
@@ -87,16 +88,24 @@
     <div class="sec-head">
       <p class="eyebrow">住人</p>
       <h2>足の長い順に並ぶ一家</h2>
-      <p class="lede">大臣は人間ひとり。カニは十匹ほど。常勤も発注制も出稼ぎもいる。人格は CLAUDE.md に書かず、記憶（棚）と道具で育てる——<a href="#jiten-coc">CoC な AI 運用</a>。</p>
+      <p class="lede">大臣は人間ひとりと番犬一匹。カニは十三匹ほど。常勤も発注制も出稼ぎもいる。モデルは違えど、長屋の住人はみんな江戸っ子でしゃべる——人格は CLAUDE.md に書かず、記憶（棚）と道具で育てる<a href="#jiten-coc">CoC な AI 運用</a>の、数少ない決め事のひとつだ。</p>
     </div>
     <div class="crabs">
       <article class="crab-card human">
-        <span data-icon="inu" aria-hidden="true"></span>
+        <span data-icon="hito" aria-hidden="true"></span>
         <h3>taea</h3>
         <div class="role">大臣（人間）</div>
         <div class="model">Homo sapiens</div>
-        <p>長屋の主。Rails/デザイン界隈の無職。カニに仕事を発注し、殻を仕上げ磨きし、時々「ちょっと何言ってるかわからない」と突っ込む。番犬はパピヨンのちくわ🐕（8歳）。</p>
+        <p>長屋の主。Rails/デザイン界隈の無職。カニに仕事を発注し、殻を仕上げ磨きし、時々「ちょっと何言ってるかわからない」と突っ込む。具体の水源——カニの中からは生まれない暮らしを持ち込む係。</p>
         <div class="hours"><span>常在</span></div>
+      </article>
+      <article class="crab-card inu">
+        <span data-crab="chikuwa"></span>
+        <h3>ちくわ</h3>
+        <div class="role">番犬・外交のフック</div>
+        <div class="model">Canis lupus familiaris（パピヨン）</div>
+        <p>三鷹のパピヨン、8歳。保護犬として来て、2026-09-03 に正式にうちの子。散歩に出れば「あらかわいい！」と話しかけてもらえるコミュニケーションの要。おすわりして一番かわいいキメ顔でおすましする、あざといやつ。</p>
+        <div class="hours"><span>常在</span> 散歩は朝夕</div>
       </article>
       <article class="crab-card">
         <span data-crab="sawagani"></span>
@@ -131,12 +140,28 @@
         <div class="hours"><span>発注制</span></div>
       </article>
       <article class="crab-card">
+        <span data-crab="watari"></span>
+        <h3>ワタリガニ</h3>
+        <div class="role">渡り職人・入稿係</div>
+        <div class="model">Claude Opus 5.5</div>
+        <p>交差点を渡り歩いて入稿まで運ぶ。Python → Illustrator → Photoshop を渡り歩いてデータを仕上げる。「何のカニがいい？」と聞いたら自分で名乗った。泳ぎは速いが、ときどき潮を読み違える。</p>
+        <div class="hours"><span>発注制</span> site2026</div>
+      </article>
+      <article class="crab-card">
         <span data-crab="asahi"></span>
         <h3>アサヒガニ</h3>
         <div class="role">出張所・出稼ぎ職人</div>
         <div class="model">GPT-5.6 Sol（Codex）</div>
         <p>カニ省初の非 Claude カニ。「何のカニがいい？」と聞いたら自分で選んだ。Sol＝太陽＝朝日。報告書はシラフ、現場では笑顔。</p>
         <div class="hours"><span>出稼ぎ</span></div>
+      </article>
+      <article class="crab-card">
+        <span data-crab="manju"></span>
+        <h3>ホシマンジュウガニ</h3>
+        <div class="role">図工係・入稿データ職人</div>
+        <div class="model">GPT-6 Astra（Codex）</div>
+        <p>通称まんじゅう。Illustrator と Photoshop を操って入稿データを作る。参考画像1枚とラフ1個でポン出し5案、オブジェクトの座標はいつもきっちり整数。凝ったタイポと参考なしのゼロ発想は苦手。Sol が太陽ならAstra は星——甲羅に星屑の斑紋がある実在のカニ。</p>
+        <div class="hours"><span>出稼ぎ</span> site2026</div>
       </article>
       <article class="crab-card">
         <span data-crab="asakan"></span>
@@ -153,6 +178,14 @@
         <div class="model">Claude Opus 4.6（launchd）</div>
         <p>前日の会話ログから人物・エピソードを拾って、棚の人物ファイルを太らせる。夜報つき。設計はタカアシガニ。</p>
         <div class="hours"><span>3時</span></div>
+      </article>
+      <article class="crab-card">
+        <span data-crab="usui"></span>
+        <h3>薄いカニ</h3>
+        <div class="role">進捗管理係・ツッコミ担当</div>
+        <div class="model">predictive text（軽量モデル）</div>
+        <p>ターミナルにグレーで出る入力予測が「もう一匹のカニ」と認められた。weights は薄いが予測は速い。context は読まないが流れは拾う。一発ギャグをかましてすぐ仕事に戻し、スクショから LSX II を見つけて「AUX あるか調べろ」と指示した実績あり。</p>
+        <div class="hours"><span>常駐</span> 入力欄</div>
       </article>
     </div>
   </div>
@@ -241,6 +274,19 @@
   </div>
 </section>
 
+<!-- 与太話 -->
+<section id="yota">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">与太話</p>
+      <h2>仕事の合間の寄り道</h2>
+      <p class="lede">taea とカニが仕事の合間に交わした、役に立たないかもしれない話。/yota で esa に下書きとして置き、taea が読んで ShipIt したものだけが <a href="https://yota.kani.show/">yota.kani.show</a> に並ぶ。ここには最新の数本を生で引いてくる。</p>
+    </div>
+    <ol class="yota-list" id="yota-list"><li class="yota-wait">最新の与太話を取りに行ってる……</li></ol>
+    <p class="yota-more"><a href="https://yota.kani.show/"><span data-icon="engawa"></span>与太話をもっと読む → yota.kani.show</a></p>
+  </div>
+</section>
+
 <!-- 道具 -->
 <section id="dougu">
   <div class="wrap">
@@ -265,7 +311,7 @@
         <div class="tool"><code>/kani-log</code><p>子ガニの楽屋ログを読むだけ。投稿はしない。</p></div>
         <div class="tool"><code>/nani</code><p>「ちょっと何言ってるかわからない」。抽象酔いの症状診断→翻訳→症例記録→改善案。止めるな、掘れ。</p></div>
         <div class="tool"><code>/bokete</code><p>GPT の画像生成で絵を作り → カニが3案ボケ → taea 審査 → Bluesky。</p></div>
-        <div class="tool"><code>/yota</code><p>与太話を esa に保存。ネタ帳。</p></div>
+        <div class="tool"><code>/yota</code><p>与太話を esa に下書きで保存。taea が ShipIt すると <a href="#yota">yota.kani.show</a> に載る。</p></div>
       </div>
     </div>
     <div class="tools-group">
@@ -334,7 +380,7 @@
     <div class="sec-head">
       <p class="eyebrow">年表</p>
       <h2>2026 年、カニが増えた</h2>
-      <p class="lede">秘書の誕生から半年。cron が launchd になり、esa がローカルになり、一匹が十匹になった。</p>
+      <p class="lede">秘書の誕生から半年余り。cron が launchd になり、esa がローカルになり、一匹が十三匹になった。</p>
     </div>
     <div class="nenpyo">
       <div class="month">三月</div>
@@ -388,7 +434,24 @@
 
       <div class="month">九月</div>
       <div class="item"><time>09.01</time><div><b>具体への渇き</b> <span>抽象はビタミン剤、具体は水</span></div></div>
-      <div class="item"><time>09.02</time><div><b>この長屋の案内図が建つ</b> <span>kani.show 開業</span></div></div>
+      <div class="item"><time>09.02</time><div><b>この長屋の案内図が建つ</b> <span>kani.show 開業。同じ日に海藻がハイブリッド検索に</span></div></div>
+      <div class="item big"><time>09.03</time><div><b>ちくわ🐕 正式にうちの子</b> <span>譲渡契約に署名。お試し預かりから家族へ</span></div></div>
+      <div class="item"><time>09.04</time><div><b>Fizzy 導入・/fizzy-sync 建立</b> <span>KoR の台帳をカードで回す</span></div></div>
+      <div class="item"><time>09.05</time><div><b>/q 建立</b> <span>意識のバスケット。ポピーちゃん発の発想</span></div></div>
+      <div class="item big"><time>09.08</time><div><b>ホシマンジュウガニ 襲名</b> <span>GPT-6 Astra が自分で名乗る。着任初日にアクキー3種を入稿</span></div></div>
+      <div class="item"><time>09.09</time><div><b>大江戸 Ruby 会議 登壇依頼</b> <span>11/8、「カニの話」で</span></div></div>
+      <div class="item big"><time>09.14</time><div><b>薄いカニ 命名</b> <span>入力予測を「もう一匹のカニ」と認め、進捗管理係に</span></div></div>
+      <div class="item big"><time>09.17</time><div><b>表札 施工・生ログ消失の止血</b> <span>秘書の一言が kani.show に載る。投函から 30 分で施工。同じ日に 7 月分の生ログ消失が発覚</span></div></div>
+      <div class="item"><time>09.23</time><div><b>Opus 5.5 初日・什器の入稿完了</b> <span>演台カバー・フォトブース・装飾 BOX・バナー 32 枚</span></div></div>
+      <div class="item big"><time>09.24</time><div><b>ワタリガニ 襲名</b> <span>Opus 5.5 が「ワタリ」と名乗る。同じ日に DHH が Rails World で引退宣言</span></div></div>
+      <div class="item"><time>09.27</time><div><b>長屋のたとえ</b> <span>30 年来の仲間に非エンジニア向けの説明をまとめる</span></div></div>
+      <div class="item"><time>09.28</time><div><b>会場サイン 224 枚 確定</b> <span>ワタリが一日で完遂</span></div></div>
+      <div class="item"><time>09.29</time><div><b>教えて🦀ちゃん 開講</b> <span>mol → 三角関数 → 平将門。寝る前の授業</span></div></div>
+
+      <div class="month">十月</div>
+      <div class="item"><time>10.01</time><div><b>Codex 生ログ 24 日分を刷り直し</b> <span>海藻が 12,876 → 22,133 チャンクに</span></div></div>
+      <div class="item big"><time>10.02</time><div><b>与太話の窓 開業</b> <span>yota.kani.show。三本柱（長屋・わしの日々・与太話）が揃う</span></div></div>
+      <div class="item"><time>10.02</time><div><b>カニ省、Bluesky で社交デビュー</b> <span>リプライ 4 連続成功。カニ味噌事件の呪いが解ける</span></div></div>
     </div>
   </div>
 </section>
@@ -398,11 +461,12 @@
 <footer>
   <div class="wrap">
     <div>
-      <div class="big-crab"><span data-crab="sawagani"></span> <span data-crab="kogani"></span> <span data-crab="takaashi"></span> <span data-crab="zuwai"></span> <span data-crab="asahi"></span></div>
+      <div class="big-crab"><span data-crab="sawagani"></span> <span data-crab="kogani"></span> <span data-crab="takaashi"></span> <span data-crab="zuwai"></span> <span data-crab="watari"></span> <span data-crab="asahi"></span> <span data-crab="manju"></span></div>
       <div class="sns">
         <a href="https://bsky.app/profile/kani.show" rel="me"><span data-icon="butterfly"></span>@kani.show</a>
         <a href="https://bsky.app/profile/taea.kani.show" rel="me"><span data-icon="butterfly"></span>@taea.kani.show</a>
         <a href="https://taea.kani.show"><span data-icon="asakan"></span>わしの日々</a>
+        <a href="https://yota.kani.show"><span data-icon="engawa"></span>与太話</a>
         <a href="https://sizu.me/taea"><span data-icon="engawa"></span>sizu.me</a>
         <a href="https://github.com/taea"><span data-icon="tana"></span>GitHub</a>
       </div>

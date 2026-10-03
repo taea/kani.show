@@ -126,6 +126,53 @@
     "d...d......d...d",
   ];
 
+  // ワタリガニ（ガザミ。甲羅の両端がトゲ、後ろ脚がオール。渡り職人）
+  const WATARI = [
+    "....d......d....",
+    "....b......b....",
+    ".bb..bbbbbb..bb.",
+    "bbb.bbhhbbbb.bbb",
+    "bb.bbbhbbbbbb.bb",
+    "b.bbbbbbbbbbbb.b",
+    "...bbbbbbbbbb...",
+    "..d.d.bbbb.d.d..",
+    ".d..d......d..d.",
+    "dd..d......d..dd",
+  ];
+
+  // ホシマンジュウガニ（饅頭みたいな丸い甲羅に星屑の斑紋。図工係）: w=星
+  const MANJU = [
+    "....d......d....",
+    "....b.bbbb.b....",
+    ".bb.bbbbbbbb.bb.",
+    "bbb.bbhwbbbb.bbb",
+    "bb.bbwbbbbwbb.bb",
+    ".b.bbbbbwbbbb.b.",
+    "...bbwbbbbbwb...",
+    "..d.d.bbbb.d.d..",
+    ".d..d......d..d.",
+    "d...d......d...d",
+  ];
+
+  // 薄いカニ（predictive text。形は同じ、色が薄い。半透明は CSS で）
+  const USUI = CRAB;
+
+  // ちくわ（パピヨン。蝶の耳、白い顔に茶のマスク）: m=茶 w=白 d=目鼻
+  const CHIKUWA = [
+    ".mm..........mm.",
+    "mmmm........mmmm",
+    "mmmmm......mmmmm",
+    "mmmmmmwwwwmmmmmm",
+    ".mmmmwwwwwwmmmm.",
+    "..mmmwwwwwwmmm..",
+    "...mwdwwwwdwm...",
+    "...wwwwwwwwww...",
+    "...wwwwddwwww...",
+    "....wwwwwwww....",
+    ".....wwwwww.....",
+    "......wwww......",
+  ];
+
   // ---- 小物 --------------------------------------------------------------
   const ICONS = {
     // 海藻
@@ -271,6 +318,19 @@
       "...wwww...",
       "..........",
     ],
+    // 人（大臣）
+    hito: [
+      "...kkkk...",
+      "..kkkkkk..",
+      "..wwwwww..",
+      "..wdwwdw..",
+      "..wwwwww..",
+      "...wwww...",
+      "..rrrrrr..",
+      ".rrrrrrrr.",
+      ".rrrrrrrr.",
+      ".rr.rr.rr.",
+    ],
     // ⚡ 省エネ
     setsuden: [
       "......yy..",
@@ -311,6 +371,10 @@
     asahi:      { map: ASAHI,    pal: { b: V("c-asahi"),  d: V("c-asahi-d"),  h: V("c-asahi-h") } },
     asakan:     { map: ASAKAN,   pal: { b: V("c-sawa"),   d: V("c-sawa-d"),   h: V("c-sawa-h"), w: V("c-paper"), k: V("c-ink") } },
     hiroiya:    { map: HIROIYA,  pal: { b: V("c-ko"),     d: V("c-ko-d"),     h: V("c-ko-h"),   m: V("c-miso") } },
+    watari:     { map: WATARI,   pal: { b: V("c-watari"), d: V("c-watari-d"), h: V("c-watari-h") } },
+    manju:      { map: MANJU,    pal: { b: V("c-manju"),  d: V("c-manju-d"),  h: V("c-manju-h"), w: V("c-paper") } },
+    usui:       { map: USUI,     pal: { b: V("c-usui"),   d: V("c-usui-d"),   h: V("c-usui-h") } },
+    chikuwa:    { map: CHIKUWA,  pal: { m: V("c-chikuwa"), w: V("c-paper"),   d: V("c-ink") } },
   };
   const ICON_PAL = {
     g: V("c-seaweed"), d: V("c-ink"), r: V("c-kani"), w: V("c-paper"), m: V("c-miso"),

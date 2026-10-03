@@ -31,6 +31,10 @@
   --c-taka: #B8452A; --c-taka-d: #4E1A0E; --c-taka-h: #E07A50;
   --c-zuwai: #9E3A2A; --c-zuwai-d: #3E140C; --c-zuwai-h: #D8664A;
   --c-asahi: #E89A2E; --c-asahi-d: #7A4210; --c-asahi-h: #FFD36E;
+  --c-watari: #3F7F9A; --c-watari-d: #1C3A48; --c-watari-h: #7FC0D6;
+  --c-manju: #7A4E8C; --c-manju-d: #3A2244; --c-manju-h: #A77BC0;
+  --c-usui: #C9BDB3; --c-usui-d: #9A8E85; --c-usui-h: #EDE6E0;
+  --c-chikuwa: #B07443;
   --c-paper: #FFF6EC; --c-ink: #24201C; --c-miso: #C98A3A; --c-seaweed: #3E8F5E;
   --c-kani: #D9452B; --c-kani-deep: #8E2417; --c-shio: #5FB0AA; --c-yellow: #F2C14E;
   --c-roof: #4A4A56; --c-roof-d: #33333D; --c-roof-h: #6E6E7C;
@@ -54,6 +58,7 @@
     --c-paper: #E8DCC8; --c-ink: #1A1410; --c-sign: #E8DCC8; --c-shoji: #F6E9D8;
     --c-window: #F2C14E;
     --c-ground: #3B3A44; --c-ground-h: #56556A;
+    --c-usui: #5F6E74; --c-usui-d: #3F4C52; --c-usui-h: #8A9BA2;
   }
 }
 :root[data-theme="dark"] {
@@ -67,6 +72,7 @@
   --c-paper: #E8DCC8; --c-ink: #1A1410; --c-sign: #E8DCC8; --c-shoji: #F6E9D8;
   --c-window: #F2C14E;
   --c-ground: #3B3A44; --c-ground-h: #56556A;
+  --c-usui: #5F6E74; --c-usui-d: #3F4C52; --c-usui-h: #8A9BA2;
 }
 
 * { box-sizing: border-box; }
@@ -173,7 +179,7 @@ section + section { border-top: 4px double var(--line); }
 .hero-ground .wrap { display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: center; font-family: var(--font-dot); font-size: 14px; color: var(--fg-2); }
 .hero-ground b { color: var(--kani); font-weight: 400; font-size: 20px; }
 
-/* --- 今日の秘書の一言（縁側の表札）。数字帯の直下の短冊。表札が無いうちは hidden --- */
+/* --- 秘書の一言（縁側の表札）。数字帯の直下の短冊。表札が無いうちは hidden --- */
 .hitokoto { background: var(--card); padding: 14px 0 16px; border-bottom: 2px dashed var(--line); }
 .hitokoto[hidden] { display: none; }
 .hitokoto .wrap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px; }
@@ -217,7 +223,12 @@ section + section { border-top: 4px double var(--line); }
 .crab-card.human { border-color: var(--miso); box-shadow: 4px 4px 0 var(--miso); }
 .crab-card.human .role { color: var(--miso); }
 .crab-card.human .hours span { background: var(--miso); }
-.crab-card .px-inu { height: 56px; width: auto; align-self: center; margin-top: 14px; }
+.crab-card .px-inu, .crab-card .px-hito { height: 56px; width: auto; align-self: center; margin-top: 14px; }
+.crab-card .px-chikuwa { height: 56px; width: auto; align-self: center; margin-top: 14px; }
+.px-usui { opacity: .55; }
+.crab-card.inu { border-color: var(--miso); box-shadow: 4px 4px 0 var(--miso); }
+.crab-card.inu .role { color: var(--miso); }
+.crab-card.inu .hours span { background: var(--miso); }
 
 /* --- 間取り --- */
 .rooms { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
@@ -277,6 +288,29 @@ section + section { border-top: 4px double var(--line); }
 .flow .step small { display: block; color: var(--fg-2); font-size: 12.5px; line-height: 1.6; margin-top: 4px; }
 .flow .step .px { height: 24px; width: auto; position: absolute; right: 10px; top: 10px; }
 .flow-note { margin-top: 14px; font-size: 13.5px; color: var(--fg-2); }
+
+/* --- 与太話（yota.kani.show の最新を生で引く） --- */
+.yota-list { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--line); }
+.yota-list li { border-bottom: 1px dashed var(--line); }
+.yota-list a {
+  display: grid; grid-template-columns: 92px 1fr auto; column-gap: 16px; row-gap: 2px; align-items: baseline;
+  padding: 14px 8px; color: var(--fg); text-decoration: none;
+}
+.yota-list a:hover { background: var(--card); }
+.yota-list a:hover b { color: var(--kani); }
+.yota-list time { font-family: var(--font-dot); color: var(--kani); font-size: 14px; grid-row: 1 / span 2; }
+.yota-list b { font-weight: 700; font-size: 16px; line-height: 1.55; }
+.yota-list span { color: var(--fg-2); font-size: 13.5px; line-height: 1.7; grid-column: 2; }
+.yota-list small { font-family: var(--font-dot); color: var(--fg-2); font-size: 12px; opacity: .8; white-space: nowrap; }
+.yota-list .yota-wait, .yota-list .yota-fail { padding: 14px 8px; color: var(--fg-2); font-family: var(--font-dot); font-size: 14px; }
+.yota-list .yota-fail a { display: inline; padding: 0; color: var(--kani); }
+.yota-more { margin: 16px 0 0; font-family: var(--font-dot); font-size: 15px; }
+.yota-more .px { height: 20px; width: auto; margin-right: 8px; vertical-align: -4px; }
+@media (max-width: 560px) {
+  .yota-list a { grid-template-columns: 1fr auto; }
+  .yota-list time { grid-row: auto; grid-column: 1 / -1; }
+  .yota-list span { grid-column: 1 / -1; }
+}
 
 /* --- 道具 --- */
 .tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }

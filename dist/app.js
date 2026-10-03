@@ -16,6 +16,7 @@
     { name: "棚", href: "#madori", crab: null },
     { name: "文箱", href: "#madori", crab: null },
     { name: "出張所", href: "#juunin", crab: "asahi" },
+    { name: "図工室", href: "#juunin", crab: "manju" },
   ];
   const scene = $("#scene");
   if (scene) {
@@ -33,6 +34,9 @@
       { kind: "zuwai", dur: 52, delay: -2 },
       { kind: "asahi", dur: 40, delay: -28 },
       { kind: "hiroiya", dur: 70, delay: -50 },
+      { kind: "watari", dur: 36, delay: -14 },
+      { kind: "manju", dur: 56, delay: -41 },
+      { kind: "usui", dur: 24, delay: -11, cls: "mini" },
     ].map((w) => `<div class="walker ${w.cls || ""}" style="--dur:${w.dur}s;--delay:${w.delay}s">${PX.crab(w.kind)}</div>`).join("");
     const groundPct = ((n.height - n.groundY) / n.height * 100).toFixed(2);
     const crabH = (8.5 / n.height * 100).toFixed(2);
@@ -66,7 +70,27 @@
     marks.innerHTML = M.map(([h, svg]) => `<div class="m" style="left:${h / 24 * 100}%">${svg}</div>`).join("");
   }
 
-  // 4. 目次の現在地
+  // 4. 与太話の最新（yota.kani.show が焼く latest.json を生で引く。落ちたら一覧への道標だけ残す）
+  const yl = $("#yota-list");
+  if (yl && "fetch" in window) {
+    const fmt = (iso) => { const [y, m, d] = iso.split("-"); return `${y}.${m}.${d}`; };
+    const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    fetch("https://yota.kani.show/latest.json", { mode: "cors" })
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((d) => {
+        const posts = (d.posts || []).slice(0, 5);
+        if (!posts.length) throw new Error("empty");
+        yl.innerHTML = posts.map((p) =>
+          `<li><a href="${esc(p.url)}"><time datetime="${esc(p.date)}">${fmt(p.date)}</time><b>${esc(p.title)}</b>` +
+          (p.excerpt ? `<span>${esc(p.excerpt)}</span>` : "") +
+          `<small>${p.turns ? p.turns + " 手" : "随筆"}</small></a></li>`).join("");
+      })
+      .catch(() => {
+        yl.innerHTML = `<li class="yota-fail">今は取りに行けなかった。一覧は <a href="https://yota.kani.show/">yota.kani.show</a> で。</li>`;
+      });
+  }
+
+  // 5. 目次の現在地
   const links = $$(".noren nav a");
   const secs = links.map((a) => $(a.getAttribute("href"))).filter(Boolean);
   if ("IntersectionObserver" in window && secs.length) {
