@@ -1,0 +1,4 @@
+# カニ省の長屋: 人も AI も、読むのも学習するのも歓迎だ
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
