@@ -70,11 +70,42 @@
     marks.innerHTML = M.map(([h, svg]) => `<div class="m" style="left:${h / 24 * 100}%">${svg}</div>`).join("");
   }
 
-  // 4. 与太話の最新（yota.kani.show が焼く latest.json を生で引く。落ちたら一覧への道標だけ残す）
+  const fmt = (iso) => { const [y, m, d] = iso.split("-"); return `${y}.${m}.${d}`; };
+  const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  // 4. いま Bluesky に流れてる子ガニの殻（Bluesky の公開 API を生で引く。🦀 始まりだけが殻で、📝 の与太話告知は下の節と重なるので外す）
+  const bl = $("#bsky-list");
+  if (bl && "fetch" in window) {
+    const API = "https://public.api.bsky.app/xrpc/app.bsky.feed.getAuthorFeed?actor=kani.show&filter=posts_no_replies&limit=30";
+    const pad = (n) => String(n).padStart(2, "0");
+    fetch(API, { mode: "cors" })
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((d) => {
+        const posts = (d.feed || [])
+          .filter((f) => !f.reason && /^🦀/u.test(f.post.record.text || ""))
+          .slice(0, 5);
+        if (!posts.length) throw new Error("empty");
+        bl.innerHTML = posts.map(({ post }) => {
+          const [head, ...rest] = post.record.text.split("\n");
+          const title = head.replace(/^🦀\s*/u, "");
+          const flat = rest.join(" ").replace(/\s+/g, " ").trim();
+          const body = Array.from(flat.replace(/\s*\(\d+\/\d+\)$/, "")); // スレッドの番号札は抜粋に要らない
+          const excerpt = body.slice(0, 140).join("") + (body.length > 140 || body.length < Array.from(flat).length ? "…" : "");
+          const rkey = post.uri.split("/").pop();
+          const at = new Date(post.record.createdAt);
+          const ymd = `${at.getFullYear()}-${pad(at.getMonth() + 1)}-${pad(at.getDate())}`;
+          return `<li><a href="https://bsky.app/profile/kani.show/post/${esc(rkey)}"><time datetime="${ymd}">${fmt(ymd)}</time><b>${esc(title)}</b>` +
+            (excerpt ? `<span>${esc(excerpt)}</span>` : "") + `</a></li>`;
+        }).join("");
+      })
+      .catch(() => {
+        bl.innerHTML = `<li class="yota-fail">今は取りに行けなかった。殻は <a href="https://bsky.app/profile/kani.show">@kani.show</a> で。</li>`;
+      });
+  }
+
+  // 5. 与太話の最新（yota.kani.show が焼く latest.json を生で引く。落ちたら一覧への道標だけ残す）
   const yl = $("#yota-list");
   if (yl && "fetch" in window) {
-    const fmt = (iso) => { const [y, m, d] = iso.split("-"); return `${y}.${m}.${d}`; };
-    const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
     // 5分刻みのクエリ: 古い 404/一覧をキャッシュで掴まされない。Cloudflare 側の max-age=300 と歩調を合わせる
     fetch("https://yota.kani.show/latest.json?t=" + Math.floor(Date.now() / 300000), { mode: "cors" })
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
@@ -91,7 +122,7 @@
       });
   }
 
-  // 5. 目次の現在地
+  // 6. 目次の現在地
   const links = $$(".noren nav a");
   const secs = links.map((a) => $(a.getAttribute("href"))).filter(Boolean);
   if ("IntersectionObserver" in window && secs.length) {
